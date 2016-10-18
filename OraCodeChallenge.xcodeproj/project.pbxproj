@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		13591CD21DB6BBE60041F694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591CD11DB6BBE60041F694 /* AppDelegate.swift */; };
-		13591CD41DB6BBE60041F694 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591CD31DB6BBE60041F694 /* ViewController.swift */; };
-		13591CD71DB6BBE60041F694 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13591CD51DB6BBE60041F694 /* Main.storyboard */; };
 		13591CD91DB6BBE60041F694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13591CD81DB6BBE60041F694 /* Assets.xcassets */; };
 		13591CDC1DB6BBE60041F694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13591CDA1DB6BBE60041F694 /* LaunchScreen.storyboard */; };
+		13591CE41DB6BCAC0041F694 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13591CE31DB6BCAC0041F694 /* Register.storyboard */; };
+		13591CE61DB6BCD80041F694 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13591CE51DB6BCD80041F694 /* Login.storyboard */; };
+		13591CE81DB6BCEC0041F694 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13591CE71DB6BCEC0041F694 /* Profile.storyboard */; };
+		13591CEA1DB6BD100041F694 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13591CE91DB6BD100041F694 /* Chats.storyboard */; };
+		13591CEF1DB6BEBD0041F694 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591CEE1DB6BEBD0041F694 /* RegisterViewController.swift */; };
+		13591CF11DB6CCA00041F694 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591CF01DB6CCA00041F694 /* String + Extension.swift */; };
+		13591CF51DB6D5630041F694 /* RegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591CF41DB6D5630041F694 /* RegisterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		13591CCE1DB6BBE60041F694 /* OraCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OraCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13591CD11DB6BBE60041F694 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		13591CD31DB6BBE60041F694 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		13591CD61DB6BBE60041F694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13591CD81DB6BBE60041F694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13591CDB1DB6BBE60041F694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13591CDD1DB6BBE60041F694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13591CE31DB6BCAC0041F694 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		13591CE51DB6BCD80041F694 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		13591CE71DB6BCEC0041F694 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		13591CE91DB6BD100041F694 /* Chats.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
+		13591CEE1DB6BEBD0041F694 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ../RegisterViewController.swift; sourceTree = "<group>"; };
+		13591CF01DB6CCA00041F694 /* String + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		13591CF41DB6D5630041F694 /* RegisterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +65,26 @@
 			isa = PBXGroup;
 			children = (
 				13591CD11DB6BBE60041F694 /* AppDelegate.swift */,
-				13591CD31DB6BBE60041F694 /* ViewController.swift */,
-				13591CD51DB6BBE60041F694 /* Main.storyboard */,
+				13591CEE1DB6BEBD0041F694 /* RegisterViewController.swift */,
+				13591CF01DB6CCA00041F694 /* String + Extension.swift */,
+				13591CF41DB6D5630041F694 /* RegisterCell.swift */,
+				13591CEB1DB6BD1E0041F694 /* Storyboards */,
 				13591CD81DB6BBE60041F694 /* Assets.xcassets */,
 				13591CDA1DB6BBE60041F694 /* LaunchScreen.storyboard */,
 				13591CDD1DB6BBE60041F694 /* Info.plist */,
 			);
 			path = OraCodeChallenge;
+			sourceTree = "<group>";
+		};
+		13591CEB1DB6BD1E0041F694 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				13591CE31DB6BCAC0041F694 /* Register.storyboard */,
+				13591CE51DB6BCD80041F694 /* Login.storyboard */,
+				13591CE71DB6BCEC0041F694 /* Profile.storyboard */,
+				13591CE91DB6BD100041F694 /* Chats.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +119,7 @@
 				TargetAttributes = {
 					13591CCD1DB6BBE60041F694 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = B49K2M3VK9;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -123,9 +147,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13591CEA1DB6BD100041F694 /* Chats.storyboard in Resources */,
+				13591CE61DB6BCD80041F694 /* Login.storyboard in Resources */,
 				13591CDC1DB6BBE60041F694 /* LaunchScreen.storyboard in Resources */,
+				13591CE81DB6BCEC0041F694 /* Profile.storyboard in Resources */,
 				13591CD91DB6BBE60041F694 /* Assets.xcassets in Resources */,
-				13591CD71DB6BBE60041F694 /* Main.storyboard in Resources */,
+				13591CE41DB6BCAC0041F694 /* Register.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,22 +163,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13591CD41DB6BBE60041F694 /* ViewController.swift in Sources */,
+				13591CEF1DB6BEBD0041F694 /* RegisterViewController.swift in Sources */,
 				13591CD21DB6BBE60041F694 /* AppDelegate.swift in Sources */,
+				13591CF51DB6D5630041F694 /* RegisterCell.swift in Sources */,
+				13591CF11DB6CCA00041F694 /* String + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		13591CD51DB6BBE60041F694 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13591CD61DB6BBE60041F694 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		13591CDA1DB6BBE60041F694 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -258,6 +279,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B49K2M3VK9;
 				INFOPLIST_FILE = OraCodeChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JPJ.OraCodeChallenge;
@@ -270,6 +292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B49K2M3VK9;
 				INFOPLIST_FILE = OraCodeChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JPJ.OraCodeChallenge;

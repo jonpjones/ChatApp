@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EfG-Pf-ecx">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Register View Controller-->
+        <scene sceneID="znt-6w-Jr6">
+            <objects>
+                <viewController id="EfG-Pf-ecx" customClass="RegisterViewController" customModule="OraCodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="i4L-ag-GvL"/>
+                        <viewControllerLayoutGuide type="bottom" id="GYH-aS-48h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ADD-ya-dT0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="son-rL-m7u">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="EHR-Dl-5Td"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="OraChat" id="rXY-5D-gQs">
+                                        <barButtonItem key="leftBarButtonItem" title="Login" id="xC1-if-p1h">
+                                            <connections>
+                                                <action selector="loginButtonTapped:" destination="EfG-Pf-ecx" id="9Af-g3-mn4"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Register" id="zrc-NZ-V3U">
+                                            <connections>
+                                                <action selector="registerButtonTapped:" destination="EfG-Pf-ecx" id="YTn-P2-6c1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-eY-yqm">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="204" id="brb-iw-0kT"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RegisterCell" id="XTo-ri-qnn" customClass="RegisterCell" customModule="OraCodeChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XTo-ri-qnn" id="iQC-7A-6u2">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyX-ES-IgI">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hNU-hn-5Up">
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yyX-ES-IgI" firstAttribute="top" secondItem="iQC-7A-6u2" secondAttribute="top" id="C5W-8C-I69"/>
+                                                <constraint firstAttribute="bottom" secondItem="hNU-hn-5Up" secondAttribute="bottom" id="Hyc-pr-8U6"/>
+                                                <constraint firstAttribute="bottom" secondItem="yyX-ES-IgI" secondAttribute="bottom" id="dPf-OU-aXu"/>
+                                                <constraint firstAttribute="trailing" secondItem="hNU-hn-5Up" secondAttribute="trailing" id="hRI-Ya-19X"/>
+                                                <constraint firstItem="yyX-ES-IgI" firstAttribute="leading" secondItem="iQC-7A-6u2" secondAttribute="leading" id="oh9-H6-AnK"/>
+                                                <constraint firstItem="hNU-hn-5Up" firstAttribute="top" secondItem="iQC-7A-6u2" secondAttribute="top" id="sYi-5A-NPw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="hNU-hn-5Up" firstAttribute="width" secondItem="XTo-ri-qnn" secondAttribute="width" multiplier="0.5" id="VXI-pK-Xgg"/>
+                                            <constraint firstItem="yyX-ES-IgI" firstAttribute="width" secondItem="XTo-ri-qnn" secondAttribute="width" multiplier="0.5" id="h8V-fO-h5O"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="categoryLabel" destination="yyX-ES-IgI" id="aja-d7-cMs"/>
+                                            <outlet property="categoryTextField" destination="hNU-hn-5Up" id="fWq-ld-0zu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EfG-Pf-ecx" id="DtI-Ti-PIU"/>
+                                    <outlet property="delegate" destination="EfG-Pf-ecx" id="fwr-wV-yxg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="son-rL-m7u" firstAttribute="leading" secondItem="ADD-ya-dT0" secondAttribute="leading" id="3Aq-Hg-7Gt"/>
+                            <constraint firstAttribute="trailing" secondItem="cnS-eY-yqm" secondAttribute="trailing" id="hPw-sn-WQ1"/>
+                            <constraint firstItem="cnS-eY-yqm" firstAttribute="top" secondItem="son-rL-m7u" secondAttribute="bottom" id="j8q-3g-3YW"/>
+                            <constraint firstItem="cnS-eY-yqm" firstAttribute="leading" secondItem="ADD-ya-dT0" secondAttribute="leading" id="oZ1-5p-wpJ"/>
+                            <constraint firstAttribute="trailing" secondItem="son-rL-m7u" secondAttribute="trailing" id="vVh-FC-whL"/>
+                            <constraint firstItem="son-rL-m7u" firstAttribute="top" secondItem="ADD-ya-dT0" secondAttribute="top" id="vew-t9-17z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="registerTableView" destination="cnS-eY-yqm" id="Gvj-nc-oUX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qMh-aH-6uc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-245.59999999999999" y="-96.7016491754123"/>
+        </scene>
+    </scenes>
+</document>
