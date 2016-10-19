@@ -25,7 +25,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Account" id="j6W-WM-wzA">
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="0vx-ve-bqs"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="0vx-ve-bqs">
+                                            <connections>
+                                                <action selector="saveButtonTapped:" destination="FAW-BO-8dv" id="k3O-yQ-JXP"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -35,7 +39,7 @@
                                     <constraint firstAttribute="height" constant="204" id="pf7-u1-ezm"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cNw-vP-JN3" customClass="RegisterCell" customModule="OraCodeChallenge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserCell" id="cNw-vP-JN3" customClass="RegisterCell" customModule="OraCodeChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cNw-vP-JN3" id="tV5-x1-Itj">

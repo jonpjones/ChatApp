@@ -75,8 +75,19 @@ class OraAPIManager {
         }
     }
     
-    func getCurrentUserInfo(completionHandler: (Name, Email, Token, ID) -> Void) {
+    func getCurrentUserInfo(completionHandler: (Bool, Name?, Email?, Token?, ID?) -> Void) {
+        let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNDM0NDY3NDUxfQ.Or5WanRwK1WRqqf4oeIkAHRYgNyRssM3CCplZobxr4w"]
+        
+        Alamofire.request(baseRefURL.appending("users/me"), headers: headers).responseJSON { (response) in
+            print(response.result.value)
+            //TODO: Parse the api response, send data to through the completion handler
+            print("test")
+            
+            
+            
+        }
         
         
+               
     }
 }
