@@ -18,13 +18,13 @@ class OraAPIManager {
         
         let parameters = ["name": name, "email": email, "password": password, "confirm":  confirmPassword]
         let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8"]
-
+        
         Alamofire.request(baseRefURL.appending("users/register"), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response) in
             
             switch response.result {
             case .success:
                 print("Validation Successful")
-  
+                
             case .failure(let error):
                 print("Validation Unsuccessful - \(error)")
                 completionHandler(false)
@@ -41,13 +41,32 @@ class OraAPIManager {
             completionHandler(true)
         }
     }
-}
-
-extension String: ParameterEncoding {
-    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
-        var request = try urlRequest.asURLRequest()
-        request.httpBody = data(using: .utf8, allowLossyConversion: false)
-        return request
-    }
     
+    func login(email: String, password: String, completionHandler: @escaping (Bool) -> ()) {
+        let parameters = ["email": email, "password": password]
+        let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8"]
+        
+        Alamofire.request(baseRefURL.appending("users/login"), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response) in
+            switch response.result {
+            case .success:
+                print("Successful Response from API")
+                
+            case .failure(let error):
+                print("Login Validation Unsuccessful - \(error)")
+                completionHandler(false)
+                return
+            }
+            
+            print(response.result.value)
+            guard let responseDict = response.result.value as? [String: Any],
+                let responseInt = responseDict["success"] as? Int,
+                responseInt == 1 else {
+                    print("Error - Failure to register.")
+                    completionHandler(false)
+                    return
+            }
+            completionHandler(true)
+        }
+    
+    }
 }

@@ -3,13 +3,30 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Register-->
+        <scene sceneID="Vms-Q0-eiW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Register" id="fyE-s4-Jcs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fDo-Hj-xs7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="839" y="-478"/>
+        </scene>
+        <!--Chats-->
+        <scene sceneID="MMG-UK-WPG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chats" id="vQ6-Jg-gz5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YeU-j7-JOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914" y="-160"/>
+        </scene>
+        <!--Login View Controller-->
         <scene sceneID="A9r-xN-1Z0">
             <objects>
-                <viewController id="RcL-VG-AHT" sceneMemberID="viewController">
+                <viewController id="RcL-VG-AHT" customClass="LoginViewController" customModule="OraCodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y3z-kg-zgu"/>
                         <viewControllerLayoutGuide type="bottom" id="Bpj-gq-hm0"/>
@@ -17,12 +34,89 @@
                     <view key="view" contentMode="scaleToFill" id="zSD-8h-YXV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckj-Sa-t6Y">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Qc5-tH-tH8"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="OraChat" id="4Wx-bn-Io4">
+                                        <barButtonItem key="leftBarButtonItem" title="Register" id="L24-My-OIT">
+                                            <connections>
+                                                <segue destination="fyE-s4-Jcs" kind="show" id="Z67-2I-grd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Login" id="OeH-Zl-ME7">
+                                            <connections>
+                                                <action selector="loginButtonTapped:" destination="RcL-VG-AHT" id="GlO-jd-Fu2"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fnT-yF-Dmi">
+                                <frame key="frameInset" minY="64" width="375" height="118"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LoginCell" id="IAZ-B2-anw" customClass="RegisterCell" customModule="OraCodeChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IAZ-B2-anw" id="jJ6-gC-CdA">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMv-GF-8Mm">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jRd-Vj-oiA">
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="jRd-Vj-oiA" secondAttribute="bottom" id="FGE-IA-n22"/>
+                                                <constraint firstAttribute="trailing" secondItem="jRd-Vj-oiA" secondAttribute="trailing" id="PyC-CH-TlD"/>
+                                                <constraint firstItem="KMv-GF-8Mm" firstAttribute="leading" secondItem="jJ6-gC-CdA" secondAttribute="leading" id="WqA-ji-wzX"/>
+                                                <constraint firstItem="jRd-Vj-oiA" firstAttribute="top" secondItem="jJ6-gC-CdA" secondAttribute="top" id="Zye-sH-Psu"/>
+                                                <constraint firstItem="KMv-GF-8Mm" firstAttribute="top" secondItem="jJ6-gC-CdA" secondAttribute="top" id="fJw-g5-zPU"/>
+                                                <constraint firstAttribute="bottom" secondItem="KMv-GF-8Mm" secondAttribute="bottom" id="jaH-RR-WcH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="jRd-Vj-oiA" firstAttribute="width" secondItem="IAZ-B2-anw" secondAttribute="width" multiplier="0.5" id="F71-K1-QSd"/>
+                                            <constraint firstItem="KMv-GF-8Mm" firstAttribute="width" secondItem="IAZ-B2-anw" secondAttribute="width" multiplier="0.5" id="yli-1n-2tO"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="categoryLabel" destination="KMv-GF-8Mm" id="Z1A-I8-HO3"/>
+                                            <outlet property="categoryTextField" destination="jRd-Vj-oiA" id="ico-qA-BTv"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="RcL-VG-AHT" id="Z64-z3-kzZ"/>
+                                    <outlet property="delegate" destination="RcL-VG-AHT" id="dUt-2Z-WRX"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ckj-Sa-t6Y" firstAttribute="leading" secondItem="zSD-8h-YXV" secondAttribute="leading" id="7UE-HX-7tY"/>
+                            <constraint firstItem="ckj-Sa-t6Y" firstAttribute="top" secondItem="zSD-8h-YXV" secondAttribute="top" id="ei7-cZ-RzZ"/>
+                            <constraint firstAttribute="trailing" secondItem="ckj-Sa-t6Y" secondAttribute="trailing" id="wc3-kk-3T1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginTableView" destination="fnT-yF-Dmi" id="cTx-41-ZvL"/>
+                        <segue destination="vQ6-Jg-gz5" kind="show" identifier="LoginSuccessful" id="C6T-qk-s4m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjo-wd-w1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="289" y="-181"/>
+            <point key="canvasLocation" x="288.80000000000001" y="-181.25937031484258"/>
         </scene>
     </scenes>
 </document>

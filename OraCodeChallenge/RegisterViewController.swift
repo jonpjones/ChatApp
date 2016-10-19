@@ -30,24 +30,27 @@ class RegisterViewController: UIViewController {
         
     }
     
-    @IBAction func loginButtonTapped(_ sender: UIBarButtonItem) {
-        
-        
-    }
-    
     @IBAction func registerButtonTapped(_ sender: UIBarButtonItem) {
         recordTextFieldInputs()
         sender.isEnabled = false
         
         manager.registerUser(name: name!, email: email!, password: password!, confirmPassword: confirm!) { (success) in
             if success {
-                
+                print("Successfully Registered!")
+                self.manager.login(email: self.email!, password: self.password!, completionHandler: { (success) in
+                    if success {
+                        print("Login Successful")
+                        self.performSegue(withIdentifier: "LoginSuccess", sender: self)
+                    } else {
+                        //TODO: Handle failure case for login
+                        sender.isEnabled = true
+                    }
+                })
             } else {
                 sender.isEnabled = true
-                
+                //TODO: Handle case where registration fails
             }
         }
-        
     }
 
     func recordTextFieldInputs() {

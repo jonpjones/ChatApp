@@ -7,6 +7,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login-->
+        <scene sceneID="N5f-Nx-kDw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="aGu-eC-cWG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QNH-eo-8mG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="297" y="-407"/>
+        </scene>
+        <!--Chats-->
+        <scene sceneID="ld6-MF-xAN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chats" id="bkC-NK-c5d" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cf9-rp-nqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="-75"/>
+        </scene>
         <!--Register View Controller-->
         <scene sceneID="znt-6w-Jr6">
             <objects>
@@ -27,7 +43,7 @@
                                     <navigationItem title="OraChat" id="rXY-5D-gQs">
                                         <barButtonItem key="leftBarButtonItem" title="Login" id="xC1-if-p1h">
                                             <connections>
-                                                <action selector="loginButtonTapped:" destination="EfG-Pf-ecx" id="9Af-g3-mn4"/>
+                                                <segue destination="aGu-eC-cWG" kind="show" id="yvb-bh-M4v"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Register" id="zrc-NZ-V3U">
@@ -100,6 +116,7 @@
                     </view>
                     <connections>
                         <outlet property="registerTableView" destination="cnS-eY-yqm" id="Gvj-nc-oUX"/>
+                        <segue destination="bkC-NK-c5d" kind="show" identifier="LoginSuccess" id="LYx-vW-0G2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMh-aH-6uc" userLabel="First Responder" sceneMemberID="firstResponder"/>
