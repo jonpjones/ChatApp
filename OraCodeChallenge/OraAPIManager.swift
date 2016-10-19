@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class OraAPIManager {
     static let sharedInstance = OraAPIManager()
@@ -14,36 +15,57 @@ class OraAPIManager {
     let baseRefURL = URL(string: "http://private-d9e5b-oracodechallenge.apiary-mock.com/")
     
     func registerUser(name: String, email: String, password: String, confirmPassword: String) {
-        let registerString = "users/register"
-        let registerURL = URL(string: registerString, relativeTo: baseRefURL!)
         
-        var request = URLRequest(url: registerURL!)
-        request.httpMethod = "POST"
-        request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        let parameters = ["name": name, "email": email, "password": password, "confirm":  confirmPassword]
+        let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8"]
         
-        request.httpBody = "{\n  \"\name\": \"\(name)\",\n  \"email\": \"\(email)\",\n  \"password\": \"\(password)\",\n  \"confirm\": \"\(confirmPassword)\"\n}".data(using: .utf8)
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let response = response, let data = data {
-                print(response)
+        Alamofire.request("http://private-d9e5b-oracodechallenge.apiary-mock.com/users/register", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response) in
+            
+            switch response.result {
+            case .success:
+                print("Validation Successful")
                 
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! Dictionary <String, AnyObject>
-                    
-                    
-                    
-                    
-                } catch let error{
-                    print(error)
+                
+            case .failure(let error):
+                print("Validation Unsuccessful - \(error)")
+            }
+            
+            guard let responseDict = response.result.value as? [String: Any],
+                let responseInt = responseDict["success"] as? Int,
+                responseInt == 1 else {
+                 print("Error - Failure to register.")
+                    return
                 }
+            
                 
-            } else {
-                print(error)
+                
             }
         }
-        task.resume()
+        
     }
     
+    func registerUser (){
+        
+        Alamofire.request("http://private-d9e5b-oracodechallenge.apiary-mock.com/", method: .post).responseJSON { response in
+            print(response.request)  // original URL request
+            print(response.response) // HTTP URL response
+            print(response.data)     // server data
+            print(response.result)   // result of response serialization
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
+        }
+            }
+    
+    
+}
+
+extension String: ParameterEncoding {
+    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+        var request = try urlRequest.asURLRequest()
+        request.httpBody = data(using: .utf8, allowLossyConversion: false)
+        return request
+    }
     
 }

@@ -18,6 +18,7 @@
 		13591CF11DB6CCA00041F694 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591CF01DB6CCA00041F694 /* String + Extension.swift */; };
 		13591CF51DB6D5630041F694 /* RegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591CF41DB6D5630041F694 /* RegisterCell.swift */; };
 		13591CF71DB6DBA70041F694 /* OraAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591CF61DB6DBA70041F694 /* OraAPIManager.swift */; };
+		F2C7465BBE268E5654102949 /* Pods_OraCodeChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330EE5EAC26DA8903C936AC8 /* Pods_OraCodeChallenge.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +31,13 @@
 		13591CE51DB6BCD80041F694 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		13591CE71DB6BCEC0041F694 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		13591CE91DB6BD100041F694 /* Chats.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
-		13591CEE1DB6BEBD0041F694 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ../RegisterViewController.swift; sourceTree = "<group>"; };
+		13591CEE1DB6BEBD0041F694 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		13591CF01DB6CCA00041F694 /* String + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		13591CF41DB6D5630041F694 /* RegisterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterCell.swift; sourceTree = "<group>"; };
 		13591CF61DB6DBA70041F694 /* OraAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OraAPIManager.swift; sourceTree = "<group>"; };
+		330EE5EAC26DA8903C936AC8 /* Pods_OraCodeChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OraCodeChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A95F7D8B1493F46E25039FB2 /* Pods-OraCodeChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraCodeChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraCodeChallenge/Pods-OraCodeChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		B8B250DB3CC1ACB5E6116615 /* Pods-OraCodeChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraCodeChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-OraCodeChallenge/Pods-OraCodeChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2C7465BBE268E5654102949 /* Pods_OraCodeChallenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +57,8 @@
 			children = (
 				13591CD01DB6BBE60041F694 /* OraCodeChallenge */,
 				13591CCF1DB6BBE60041F694 /* Products */,
+				BCDEA242ECBD58CDD9698969 /* Pods */,
+				45D75827CE383F336F0182F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +113,23 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		45D75827CE383F336F0182F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				330EE5EAC26DA8903C936AC8 /* Pods_OraCodeChallenge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BCDEA242ECBD58CDD9698969 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A95F7D8B1493F46E25039FB2 /* Pods-OraCodeChallenge.debug.xcconfig */,
+				B8B250DB3CC1ACB5E6116615 /* Pods-OraCodeChallenge.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13591CE01DB6BBE60041F694 /* Build configuration list for PBXNativeTarget "OraCodeChallenge" */;
 			buildPhases = (
+				39EE51D69D00567F257B9777 /* [CP] Check Pods Manifest.lock */,
 				13591CCA1DB6BBE60041F694 /* Sources */,
 				13591CCB1DB6BBE60041F694 /* Frameworks */,
 				13591CCC1DB6BBE60041F694 /* Resources */,
+				08D1F89765FB14CBA44B5014 /* [CP] Embed Pods Frameworks */,
+				E8D1C909C815CE64D1B043DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -177,6 +204,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		08D1F89765FB14CBA44B5014 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OraCodeChallenge/Pods-OraCodeChallenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39EE51D69D00567F257B9777 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E8D1C909C815CE64D1B043DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OraCodeChallenge/Pods-OraCodeChallenge-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		13591CCA1DB6BBE60041F694 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -222,6 +297,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -271,6 +347,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -297,6 +374,7 @@
 		};
 		13591CE11DB6BBE60041F694 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A95F7D8B1493F46E25039FB2 /* Pods-OraCodeChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B49K2M3VK9;
@@ -310,6 +388,7 @@
 		};
 		13591CE21DB6BBE60041F694 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8B250DB3CC1ACB5E6116615 /* Pods-OraCodeChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B49K2M3VK9;
@@ -340,6 +419,7 @@
 				13591CE21DB6BBE60041F694 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
