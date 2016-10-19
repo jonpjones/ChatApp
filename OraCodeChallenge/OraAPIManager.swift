@@ -9,7 +9,13 @@
 import Foundation
 import Alamofire
 
+typealias Email = String
+typealias Name = String
+typealias Token = String
+typealias ID = Int
+
 class OraAPIManager {
+
     static let sharedInstance = OraAPIManager()
     
     let baseRefURL = "http://private-d9e5b-oracodechallenge.apiary-mock.com/"
@@ -67,6 +73,10 @@ class OraAPIManager {
             }
             completionHandler(true)
         }
+    }
     
+    func getCurrentUserInfo(completionHandler: (Name, Email, Token, ID) -> Void) {
+        
+        
     }
 }
