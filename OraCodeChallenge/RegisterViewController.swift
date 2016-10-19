@@ -37,8 +37,17 @@ class RegisterViewController: UIViewController {
     
     @IBAction func registerButtonTapped(_ sender: UIBarButtonItem) {
         recordTextFieldInputs()
-        manager.registerUser(name: name!, email: email!, password: password!, confirmPassword: confirm!)
         sender.isEnabled = false
+        
+        manager.registerUser(name: name!, email: email!, password: password!, confirmPassword: confirm!) { (success) in
+            if success {
+                
+            } else {
+                sender.isEnabled = true
+                
+            }
+        }
+        
     }
 
     func recordTextFieldInputs() {

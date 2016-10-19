@@ -12,53 +12,35 @@ import Alamofire
 class OraAPIManager {
     static let sharedInstance = OraAPIManager()
     
-    let baseRefURL = URL(string: "http://private-d9e5b-oracodechallenge.apiary-mock.com/")
+    let baseRefURL = "http://private-d9e5b-oracodechallenge.apiary-mock.com/"
     
-    func registerUser(name: String, email: String, password: String, confirmPassword: String) {
+    func registerUser(name: String, email: String, password: String, confirmPassword: String, completionHandler: @escaping (Bool) -> ()) {
         
         let parameters = ["name": name, "email": email, "password": password, "confirm":  confirmPassword]
         let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8"]
-        
-        Alamofire.request("http://private-d9e5b-oracodechallenge.apiary-mock.com/users/register", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response) in
+
+        Alamofire.request(baseRefURL.appending("users/register"), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response) in
             
             switch response.result {
             case .success:
                 print("Validation Successful")
-                
-                
+  
             case .failure(let error):
                 print("Validation Unsuccessful - \(error)")
+                completionHandler(false)
+                return
             }
             
             guard let responseDict = response.result.value as? [String: Any],
                 let responseInt = responseDict["success"] as? Int,
                 responseInt == 1 else {
-                 print("Error - Failure to register.")
+                    print("Error - Failure to register.")
+                    completionHandler(false)
                     return
-                }
-            
-                
-                
             }
+            completionHandler(true)
         }
-        
     }
-    
-    func registerUser (){
-        
-        Alamofire.request("http://private-d9e5b-oracodechallenge.apiary-mock.com/", method: .post).responseJSON { response in
-            print(response.request)  // original URL request
-            print(response.response) // HTTP URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
-            
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
-            }
-        }
-            }
-    
-    
 }
 
 extension String: ParameterEncoding {
