@@ -22,6 +22,7 @@ class RegisterViewController: UIViewController {
     var password: String?
     var confirm: String?
     
+    let manager = OraAPIManager.sharedInstance
     let registerCellID = "RegisterCell"
     
     override func viewDidLoad() {
@@ -35,25 +36,20 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func registerButtonTapped(_ sender: UIBarButtonItem) {
-        
-        
+        recordTextFieldInputs()
+        manager.registerUser(name: name!, email: email!, password: password!, confirmPassword: confirm!)
+        sender.isEnabled = false
     }
 
-    func recordTextFieldInputs(textField: UITextField) {
-        if textField.hasText {
-            switch textField {
-            case nameTextField!: name = textField.text
-            case emailTextField!: email = textField.text
-            case passwordTextField!: password = textField.text
-            case confirmTextField!: confirm = textField.text
-            default: break
-            }
-        }
+    func recordTextFieldInputs() {
+        name = nameTextField!.text
+        email = emailTextField!.text
+        password = passwordTextField!.text
+        confirm = confirmTextField!.text
     }
 }
 
 extension RegisterViewController: UITableViewDelegate {
-    
     
 }
 
@@ -83,19 +79,6 @@ extension RegisterViewController: UITableViewDataSource {
             cell.categoryTextField.isSecureTextEntry = true
         default: break
         }
-        cell.categoryTextField.delegate = self
         return cell
-    }
-    
-}
-
-extension RegisterViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        recordTextFieldInputs(textField: textField)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        recordTextFieldInputs(textField: textField)
-        return true
     }
 }
