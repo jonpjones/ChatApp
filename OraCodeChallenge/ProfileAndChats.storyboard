@@ -164,13 +164,13 @@
                                             <constraints>
                                                 <constraint firstItem="kaW-Kg-tJF" firstAttribute="top" secondItem="S3g-iV-b9q" secondAttribute="bottom" id="9m4-Nd-plD"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="kaW-Kg-tJF" secondAttribute="trailing" id="B4E-iR-kJR"/>
-                                                <constraint firstItem="S3g-iV-b9q" firstAttribute="leading" secondItem="SZd-9E-2Mp" secondAttribute="leadingMargin" constant="10" id="Vju-fp-Fmb"/>
+                                                <constraint firstItem="S3g-iV-b9q" firstAttribute="leading" secondItem="SZd-9E-2Mp" secondAttribute="leadingMargin" constant="20" id="Vju-fp-Fmb"/>
                                                 <constraint firstAttribute="trailing" secondItem="4xh-27-2ua" secondAttribute="trailing" id="c0t-zf-N6J"/>
-                                                <constraint firstItem="4xh-27-2ua" firstAttribute="leading" secondItem="SZd-9E-2Mp" secondAttribute="leadingMargin" constant="10" id="qcw-qp-ZWA"/>
+                                                <constraint firstItem="4xh-27-2ua" firstAttribute="leading" secondItem="SZd-9E-2Mp" secondAttribute="leadingMargin" constant="20" id="qcw-qp-ZWA"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="S3g-iV-b9q" secondAttribute="trailing" id="sPv-fi-8kh"/>
                                                 <constraint firstItem="4xh-27-2ua" firstAttribute="top" secondItem="SZd-9E-2Mp" secondAttribute="top" constant="3" id="uaO-h7-Rix"/>
                                                 <constraint firstItem="S3g-iV-b9q" firstAttribute="top" secondItem="4xh-27-2ua" secondAttribute="bottom" id="xc3-oY-YZ5"/>
-                                                <constraint firstItem="kaW-Kg-tJF" firstAttribute="leading" secondItem="SZd-9E-2Mp" secondAttribute="leadingMargin" constant="10" id="y99-3f-irU"/>
+                                                <constraint firstItem="kaW-Kg-tJF" firstAttribute="leading" secondItem="SZd-9E-2Mp" secondAttribute="leadingMargin" constant="20" id="y99-3f-irU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

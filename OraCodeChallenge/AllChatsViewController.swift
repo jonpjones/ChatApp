@@ -72,6 +72,8 @@ extension AllChatsViewController: UITableViewDataSource {
         let chatDate = sortedDates[indexPath.section]
         if let chat = datedChats[chatDate]?[indexPath.row] {
             cell.chatNameLabel.text = "\(chat.name) By \(chat.creatorName)"
+            cell.nameAndTimeLabel.text = "\(chat.lastMessage.userName) - \(chat.lastMessage.createdDate.timeSinceDate())"
+            cell.lastMessageLabel.text = chat.lastMessage.message
         }
         
         return cell
