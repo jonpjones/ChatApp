@@ -13,7 +13,9 @@ class AllChatsViewController: UIViewController {
     @IBOutlet weak var chatSearchBar: UISearchBar!
     @IBOutlet weak var chatsTableView: UITableView!
     
+    
     let manager = OraAPIManager.sharedInstance
+    let chatCellID = "ChatCell"
     
     var datedChats: [Date: [Chat]] = [:]
     var sortedDates: [Date] = []
@@ -27,6 +29,7 @@ class AllChatsViewController: UIViewController {
                 return
             }
             self.sortAndSeparateChats(chats: chats!)
+            self.chatsTableView.reloadData()
         }
     }
     
@@ -49,4 +52,33 @@ class AllChatsViewController: UIViewController {
 
 extension AllChatsViewController: UITableViewDelegate {
     
+}
+
+extension AllChatsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sortedDates.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let date = sortedDates[section]
+        guard datedChats[date] != nil else {
+            return 0
+        }
+        return datedChats[date]!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = chatsTableView.dequeueReusableCell(withIdentifier: chatCellID, for: indexPath) as! ChatTableViewCell
+        let chatDate = sortedDates[indexPath.section]
+        if let chat = datedChats[chatDate]?[indexPath.row] {
+            cell.chatNameLabel.text = "\(chat.name) By \(chat.creatorName)"
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let date = sortedDates[section]
+        return date.string()
+    }
 }

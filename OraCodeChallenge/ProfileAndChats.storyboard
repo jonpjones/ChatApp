@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -128,13 +129,55 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="98" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2np-hW-gOc">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatCell" rowHeight="98" id="FpC-Ri-YIN">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="98"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatCell" rowHeight="90" id="FpC-Ri-YIN" customClass="ChatTableViewCell" customModule="OraCodeChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FpC-Ri-YIN" id="SZd-9E-2Mp">
-                                            <frame key="frameInset" width="375" height="97"/>
+                                            <frame key="frameInset" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xh-27-2ua">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="VXm-rm-aFq"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name and Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3g-iV-b9q">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="xMv-2Q-lb0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.95183771848678589" green="0.64615827798843384" blue="0.21254512667655945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Message" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaW-Kg-tJF">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="O1j-ok-0sO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.5450664758682251" green="0.54074603319168091" blue="0.56553429365158081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kaW-Kg-tJF" firstAttribute="top" secondItem="S3g-iV-b9q" secondAttribute="bottom" id="9m4-Nd-plD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kaW-Kg-tJF" secondAttribute="trailing" id="B4E-iR-kJR"/>
+                                                <constraint firstItem="S3g-iV-b9q" firstAttribute="leading" secondItem="SZd-9E-2Mp" secondAttribute="leadingMargin" constant="10" id="Vju-fp-Fmb"/>
+                                                <constraint firstAttribute="trailing" secondItem="4xh-27-2ua" secondAttribute="trailing" id="c0t-zf-N6J"/>
+                                                <constraint firstItem="4xh-27-2ua" firstAttribute="leading" secondItem="SZd-9E-2Mp" secondAttribute="leadingMargin" constant="10" id="qcw-qp-ZWA"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="S3g-iV-b9q" secondAttribute="trailing" id="sPv-fi-8kh"/>
+                                                <constraint firstItem="4xh-27-2ua" firstAttribute="top" secondItem="SZd-9E-2Mp" secondAttribute="top" constant="3" id="uaO-h7-Rix"/>
+                                                <constraint firstItem="S3g-iV-b9q" firstAttribute="top" secondItem="4xh-27-2ua" secondAttribute="bottom" id="xc3-oY-YZ5"/>
+                                                <constraint firstItem="kaW-Kg-tJF" firstAttribute="leading" secondItem="SZd-9E-2Mp" secondAttribute="leadingMargin" constant="10" id="y99-3f-irU"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chatNameLabel" destination="4xh-27-2ua" id="FY3-UH-Gzz"/>
+                                            <outlet property="lastMessageLabel" destination="kaW-Kg-tJF" id="Vwb-JN-fFU"/>
+                                            <outlet property="nameAndTimeLabel" destination="S3g-iV-b9q" id="BY9-a6-ZzI"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
