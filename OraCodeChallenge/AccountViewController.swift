@@ -43,9 +43,11 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        sender.isEnabled = false
         updateUserWithInputs()
         if password != confirm || password!.characters.count < 1 {
             print("Passwords do not match.")
+            sender.isEnabled = true
             return
         }
         
@@ -55,6 +57,7 @@ class AccountViewController: UIViewController {
             } else {
                 print("Profile not successfully saved!")
             }
+            sender.isEnabled = true
         }
     }
     

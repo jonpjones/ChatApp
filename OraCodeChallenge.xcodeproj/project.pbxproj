@@ -10,6 +10,7 @@
 		134FCE7B1DB80DA700744FEF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134FCE7A1DB80DA700744FEF /* LoginViewController.swift */; };
 		134FCE7E1DB8227300744FEF /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134FCE7D1DB8227300744FEF /* AccountViewController.swift */; };
 		134FCE801DB9217E00744FEF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134FCE7F1DB9217E00744FEF /* User.swift */; };
+		134FCE821DB948C300744FEF /* OraSpashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 134FCE811DB948C300744FEF /* OraSpashScreen.png */; };
 		13591CD21DB6BBE60041F694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591CD11DB6BBE60041F694 /* AppDelegate.swift */; };
 		13591CD91DB6BBE60041F694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13591CD81DB6BBE60041F694 /* Assets.xcassets */; };
 		13591CDC1DB6BBE60041F694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13591CDA1DB6BBE60041F694 /* LaunchScreen.storyboard */; };
@@ -27,6 +28,7 @@
 		134FCE7A1DB80DA700744FEF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		134FCE7D1DB8227300744FEF /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		134FCE7F1DB9217E00744FEF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		134FCE811DB948C300744FEF /* OraSpashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OraSpashScreen.png; path = Assets.xcassets/OraSpashScreen.png; sourceTree = "<group>"; };
 		13591CCE1DB6BBE60041F694 /* OraCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OraCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13591CD11DB6BBE60041F694 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13591CD81DB6BBE60041F694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				134FCE7C1DB8116000744FEF /* Model */,
 				13591CEB1DB6BD1E0041F694 /* Storyboards */,
 				13591CD81DB6BBE60041F694 /* Assets.xcassets */,
+				134FCE811DB948C300744FEF /* OraSpashScreen.png */,
 				13591CDA1DB6BBE60041F694 /* LaunchScreen.storyboard */,
 				13591CDD1DB6BBE60041F694 /* Info.plist */,
 			);
@@ -209,6 +212,7 @@
 			files = (
 				13591CEA1DB6BD100041F694 /* ProfileAndChats.storyboard in Resources */,
 				13591CE61DB6BCD80041F694 /* Login.storyboard in Resources */,
+				134FCE821DB948C300744FEF /* OraSpashScreen.png in Resources */,
 				13591CDC1DB6BBE60041F694 /* LaunchScreen.storyboard in Resources */,
 				13591CD91DB6BBE60041F694 /* Assets.xcassets in Resources */,
 				13591CE41DB6BCAC0041F694 /* Register.storyboard in Resources */,
