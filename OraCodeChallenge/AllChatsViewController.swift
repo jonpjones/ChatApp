@@ -84,3 +84,9 @@ extension AllChatsViewController: UITableViewDataSource {
         return date.string()
     }
 }
+
+extension AllChatsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+}
