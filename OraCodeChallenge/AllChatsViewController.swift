@@ -9,16 +9,18 @@
 import UIKit
 
 class AllChatsViewController: UIViewController {
-
+    
     @IBOutlet weak var chatSearchBar: UISearchBar!
     @IBOutlet weak var chatsTableView: UITableView!
-    
     
     let manager = OraAPIManager.sharedInstance
     let chatCellID = "ChatCell"
     
     var datedChats: [Date: [Chat]] = [:]
     var sortedDates: [Date] = []
+    var searching: Bool = false
+    var allChats: [Chat]?
+    var filteredChats: [Chat]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,25 +30,29 @@ class AllChatsViewController: UIViewController {
                 print("No chats to display")
                 return
             }
-            self.sortAndSeparateChats(chats: chats!)
+            self.allChats = chats!
+            self.filteredChats = chats!
+            self.datedChats = self.sortAndSeparateChats(chats: chats!)
             self.chatsTableView.reloadData()
         }
     }
     
-    func sortAndSeparateChats(chats: [Chat]) {
+    func sortAndSeparateChats(chats: [Chat]) -> [Date: [Chat]]{
+        var sortedArray: [Date: [Chat]] = [:]
         for chat in chats {
-            if datedChats[chat.lastMessage.createdDate] == nil {
-                datedChats[chat.lastMessage.createdDate] = [chat]
+            if sortedArray[chat.lastMessage.createdDate] == nil {
+                sortedArray[chat.lastMessage.createdDate] = [chat]
                 sortedDates.append(chat.lastMessage.createdDate)
             } else {
-                var chatsOnDate = datedChats[chat.lastMessage.createdDate]
+                var chatsOnDate = sortedArray[chat.lastMessage.createdDate]
                 chatsOnDate?.append(chat)
-                datedChats[chat.lastMessage.createdDate] = chatsOnDate!
+                sortedArray[chat.lastMessage.createdDate] = chatsOnDate!
             }
         }
-        sortedDates = datedChats.keys.sorted(by: { (date1, date2) -> Bool in
+        sortedDates = sortedArray.keys.sorted(by: { (date1, date2) -> Bool in
             return date1 > date2
         })
+        return sortedArray
     }
 }
 
@@ -87,6 +93,15 @@ extension AllChatsViewController: UITableViewDataSource {
 
 extension AllChatsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        if searchText.characters.count > 0 {
+            filteredChats = allChats?.filter({ (chat) -> Bool in
+                return chat.name.contains(searchText)
+            })
+            datedChats = sortAndSeparateChats(chats: filteredChats!)
+            chatsTableView.reloadData()
+        } else {
+            datedChats = sortAndSeparateChats(chats: allChats!)
+            chatsTableView.reloadData()
+        }
     }
 }
