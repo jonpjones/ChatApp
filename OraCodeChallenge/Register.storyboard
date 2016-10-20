@@ -56,9 +56,6 @@
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-eY-yqm">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="204" id="brb-iw-0kT"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RegisterCell" id="XTo-ri-qnn" customClass="RegisterCell" customModule="OraCodeChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -107,6 +104,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="son-rL-m7u" firstAttribute="leading" secondItem="ADD-ya-dT0" secondAttribute="leading" id="3Aq-Hg-7Gt"/>
+                            <constraint firstItem="GYH-aS-48h" firstAttribute="top" secondItem="cnS-eY-yqm" secondAttribute="bottom" id="fYf-4V-Z4g"/>
                             <constraint firstAttribute="trailing" secondItem="cnS-eY-yqm" secondAttribute="trailing" id="hPw-sn-WQ1"/>
                             <constraint firstItem="cnS-eY-yqm" firstAttribute="top" secondItem="son-rL-m7u" secondAttribute="bottom" id="j8q-3g-3YW"/>
                             <constraint firstItem="cnS-eY-yqm" firstAttribute="leading" secondItem="ADD-ya-dT0" secondAttribute="leading" id="oZ1-5p-wpJ"/>

@@ -54,9 +54,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fnT-yF-Dmi">
-                                <frame key="frameInset" minY="64" width="375" height="118"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fnT-yF-Dmi">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LoginCell" id="IAZ-B2-anw" customClass="RegisterCell" customModule="OraCodeChallenge" customModuleProvider="target">
@@ -105,8 +103,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ckj-Sa-t6Y" firstAttribute="leading" secondItem="zSD-8h-YXV" secondAttribute="leading" id="7UE-HX-7tY"/>
+                            <constraint firstItem="fnT-yF-Dmi" firstAttribute="leading" secondItem="zSD-8h-YXV" secondAttribute="leading" id="F15-pJ-NUj"/>
+                            <constraint firstItem="fnT-yF-Dmi" firstAttribute="top" secondItem="ckj-Sa-t6Y" secondAttribute="bottom" id="N2l-Yk-Bem"/>
+                            <constraint firstAttribute="trailing" secondItem="fnT-yF-Dmi" secondAttribute="trailing" id="U1B-hu-9hf"/>
                             <constraint firstItem="ckj-Sa-t6Y" firstAttribute="top" secondItem="zSD-8h-YXV" secondAttribute="top" id="ei7-cZ-RzZ"/>
                             <constraint firstAttribute="trailing" secondItem="ckj-Sa-t6Y" secondAttribute="trailing" id="wc3-kk-3T1"/>
+                            <constraint firstItem="Bpj-gq-hm0" firstAttribute="top" secondItem="fnT-yF-Dmi" secondAttribute="bottom" id="zTk-vY-cVZ"/>
                         </constraints>
                     </view>
                     <connections>

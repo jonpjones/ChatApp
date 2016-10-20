@@ -27,7 +27,7 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        registerTableView.tableFooterView = UIView()
     }
     
     @IBAction func registerButtonTapped(_ sender: UIBarButtonItem) {

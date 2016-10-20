@@ -29,6 +29,7 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userTableView.tableFooterView = UIView()
         manager.getCurrentUserInfo { (user) in
             guard user != nil else {
                 //TODO: Handle failure case here

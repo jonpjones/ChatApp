@@ -11,6 +11,10 @@
 		134FCE7E1DB8227300744FEF /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134FCE7D1DB8227300744FEF /* AccountViewController.swift */; };
 		134FCE801DB9217E00744FEF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134FCE7F1DB9217E00744FEF /* User.swift */; };
 		134FCE821DB948C300744FEF /* OraSpashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 134FCE811DB948C300744FEF /* OraSpashScreen.png */; };
+		134FCE841DB94A8600744FEF /* AllChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134FCE831DB94A8600744FEF /* AllChatsViewController.swift */; };
+		134FCE861DB94E3200744FEF /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134FCE851DB94E3200744FEF /* Date + Extension.swift */; };
+		134FCE881DB950A900744FEF /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134FCE871DB950A900744FEF /* Chat.swift */; };
+		134FCE8A1DB9578600744FEF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134FCE891DB9578600744FEF /* Message.swift */; };
 		13591CD21DB6BBE60041F694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591CD11DB6BBE60041F694 /* AppDelegate.swift */; };
 		13591CD91DB6BBE60041F694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13591CD81DB6BBE60041F694 /* Assets.xcassets */; };
 		13591CDC1DB6BBE60041F694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13591CDA1DB6BBE60041F694 /* LaunchScreen.storyboard */; };
@@ -29,6 +33,10 @@
 		134FCE7D1DB8227300744FEF /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		134FCE7F1DB9217E00744FEF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		134FCE811DB948C300744FEF /* OraSpashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OraSpashScreen.png; path = Assets.xcassets/OraSpashScreen.png; sourceTree = "<group>"; };
+		134FCE831DB94A8600744FEF /* AllChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllChatsViewController.swift; sourceTree = "<group>"; };
+		134FCE851DB94E3200744FEF /* Date + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
+		134FCE871DB950A900744FEF /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		134FCE891DB9578600744FEF /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		13591CCE1DB6BBE60041F694 /* OraCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OraCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13591CD11DB6BBE60041F694 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13591CD81DB6BBE60041F694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,7 +70,10 @@
 			isa = PBXGroup;
 			children = (
 				13591CF01DB6CCA00041F694 /* String + Extension.swift */,
+				134FCE851DB94E3200744FEF /* Date + Extension.swift */,
 				13591CF41DB6D5630041F694 /* RegisterCell.swift */,
+				134FCE871DB950A900744FEF /* Chat.swift */,
+				134FCE891DB9578600744FEF /* Message.swift */,
 				134FCE7F1DB9217E00744FEF /* User.swift */,
 			);
 			name = Model;
@@ -118,6 +129,7 @@
 				13591CEE1DB6BEBD0041F694 /* RegisterViewController.swift */,
 				134FCE7A1DB80DA700744FEF /* LoginViewController.swift */,
 				134FCE7D1DB8227300744FEF /* AccountViewController.swift */,
+				134FCE831DB94A8600744FEF /* AllChatsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -277,9 +289,13 @@
 				134FCE7B1DB80DA700744FEF /* LoginViewController.swift in Sources */,
 				13591CEF1DB6BEBD0041F694 /* RegisterViewController.swift in Sources */,
 				134FCE7E1DB8227300744FEF /* AccountViewController.swift in Sources */,
+				134FCE841DB94A8600744FEF /* AllChatsViewController.swift in Sources */,
 				13591CD21DB6BBE60041F694 /* AppDelegate.swift in Sources */,
 				134FCE801DB9217E00744FEF /* User.swift in Sources */,
+				134FCE881DB950A900744FEF /* Chat.swift in Sources */,
+				134FCE861DB94E3200744FEF /* Date + Extension.swift in Sources */,
 				13591CF51DB6D5630041F694 /* RegisterCell.swift in Sources */,
+				134FCE8A1DB9578600744FEF /* Message.swift in Sources */,
 				13591CF71DB6DBA70041F694 /* OraAPIManager.swift in Sources */,
 				13591CF11DB6CCA00041F694 /* String + Extension.swift in Sources */,
 			);

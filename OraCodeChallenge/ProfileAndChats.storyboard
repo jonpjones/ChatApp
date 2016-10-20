@@ -35,9 +35,6 @@
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cmx-bH-BsN">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="204" id="pf7-u1-ezm"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UserCell" id="cNw-vP-JN3" customClass="RegisterCell" customModule="OraCodeChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -86,6 +83,7 @@
                         <constraints>
                             <constraint firstItem="R9u-xR-PdK" firstAttribute="leading" secondItem="1bS-Xp-Mza" secondAttribute="leading" id="DXb-EL-hST"/>
                             <constraint firstAttribute="trailing" secondItem="R9u-xR-PdK" secondAttribute="trailing" id="Gub-TP-KrS"/>
+                            <constraint firstItem="dB9-LV-viC" firstAttribute="top" secondItem="cmx-bH-BsN" secondAttribute="bottom" id="HDG-4a-6aV"/>
                             <constraint firstItem="cmx-bH-BsN" firstAttribute="top" secondItem="R9u-xR-PdK" secondAttribute="bottom" id="WRN-5m-Oco"/>
                             <constraint firstItem="R9u-xR-PdK" firstAttribute="top" secondItem="1bS-Xp-Mza" secondAttribute="top" id="dJJ-MB-dUR"/>
                             <constraint firstItem="cmx-bH-BsN" firstAttribute="leading" secondItem="1bS-Xp-Mza" secondAttribute="leading" id="gSd-uZ-Gsw"/>
@@ -101,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="-544.79999999999995" y="-388.15592203898052"/>
         </scene>
-        <!--View Controller-->
+        <!--All Chats View Controller-->
         <scene sceneID="en4-mG-c8X">
             <objects>
-                <viewController id="TU6-NJ-BPF" sceneMemberID="viewController">
+                <viewController id="TU6-NJ-BPF" customClass="AllChatsViewController" customModule="OraCodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="blE-KP-70m"/>
                         <viewControllerLayoutGuide type="bottom" id="eKa-9k-29R"/>
@@ -112,13 +110,58 @@
                     <view key="view" contentMode="scaleToFill" id="2Vi-7b-fHE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7V-zp-pSU">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Ena-ZZ-mhw"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="OraChat" id="TsY-KD-YeX"/>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="aMd-mB-lwe">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="FMy-H8-mz3"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="98" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2np-hW-gOc">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatCell" rowHeight="98" id="FpC-Ri-YIN">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="98"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FpC-Ri-YIN" id="SZd-9E-2Mp">
+                                            <frame key="frameInset" width="375" height="97"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aMd-mB-lwe" secondAttribute="trailing" id="4cA-9T-cqN"/>
+                            <constraint firstItem="X7V-zp-pSU" firstAttribute="top" secondItem="2Vi-7b-fHE" secondAttribute="top" id="7fT-74-6JW"/>
+                            <constraint firstAttribute="trailing" secondItem="2np-hW-gOc" secondAttribute="trailing" id="9Tl-7b-P2U"/>
+                            <constraint firstAttribute="trailing" secondItem="X7V-zp-pSU" secondAttribute="trailing" id="OSS-qB-kFG"/>
+                            <constraint firstItem="2np-hW-gOc" firstAttribute="leading" secondItem="2Vi-7b-fHE" secondAttribute="leading" id="RBt-qx-Uyh"/>
+                            <constraint firstItem="aMd-mB-lwe" firstAttribute="leading" secondItem="2Vi-7b-fHE" secondAttribute="leading" id="TFU-iS-9YK"/>
+                            <constraint firstItem="X7V-zp-pSU" firstAttribute="leading" secondItem="2Vi-7b-fHE" secondAttribute="leading" id="hcs-Rz-JEe"/>
+                            <constraint firstItem="2np-hW-gOc" firstAttribute="top" secondItem="aMd-mB-lwe" secondAttribute="bottom" id="iHU-OD-44s"/>
+                            <constraint firstItem="eKa-9k-29R" firstAttribute="top" secondItem="2np-hW-gOc" secondAttribute="bottom" id="jl3-4G-6hf"/>
+                            <constraint firstItem="aMd-mB-lwe" firstAttribute="top" secondItem="X7V-zp-pSU" secondAttribute="bottom" id="paE-lI-V9U"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="VqS-xx-Ad0"/>
+                    <connections>
+                        <outlet property="chatSearchBar" destination="aMd-mB-lwe" id="m7w-FA-f46"/>
+                        <outlet property="chatsTableView" destination="2np-hW-gOc" id="dxz-rt-OKy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="603-DG-9Mn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-544" y="-1044"/>
+            <point key="canvasLocation" x="-544.79999999999995" y="-1045.7271364317842"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Etl-rk-wZD">

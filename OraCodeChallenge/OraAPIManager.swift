@@ -15,7 +15,7 @@ typealias Token = String
 typealias ID = Int
 
 class OraAPIManager {
-
+    
     static let sharedInstance = OraAPIManager()
     
     let baseRefURL = "http://private-d9e5b-oracodechallenge.apiary-mock.com/"
@@ -123,6 +123,38 @@ class OraAPIManager {
             }
             completionHandler(false)
             return
+        }
+    }
+    
+    func retrieveChats(page: Int) {
+        let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNDM0NDY3NDUxfQ.Or5WanRwK1WRqqf4oeIkAHRYgNyRssM3CCplZobxr4w"]
+        
+        Alamofire.request(baseRefURL.appending("chats?q=Chat&page=\(page)&limit=20"), method: .get, headers: headers).responseJSON { (response) in
+            guard response.result.isSuccess == true else {
+                print("Error parsing data returned from API")
+                return
+            }
+            
+            if let data = response.result.value as? [String: AnyObject] {
+                if (data["success"] as? Int) == 1 {
+                    print("Successfully retrieved chats")
+                    let data = response.result.value as? [String: AnyObject]
+                    let chats = data?["data"] as? [[String: AnyObject]]
+                    if chats != nil {
+                        for chat in chats! {
+                            
+                        }
+                    }
+                    
+                    
+                    print(response.result.value as? [String: AnyObject])
+                    
+                    return
+                } else {
+                    print("Did not successfully retrieve chats")
+                    return
+                }
+            }
         }
     }
 }
