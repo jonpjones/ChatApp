@@ -9,11 +9,16 @@
 import UIKit
 
 class AccountViewController: UIViewController {
-    let manager = OraAPIManager.sharedInstance
     
     @IBOutlet weak var userTableView: UITableView!
     
+    let manager = OraAPIManager.sharedInstance
     var currentUser: User?
+    
+    var updatedName: String?
+    var updatedEmail: String?
+    var password: String?
+    var confirm: String?
     
     var nameTextField: UITextField?
     var emailTextField: UITextField?
@@ -30,11 +35,34 @@ class AccountViewController: UIViewController {
                 return
             }
             self.currentUser = user!
+            
+            DispatchQueue.main.async {
+                self.userTableView.reloadData()
+            }
         }
     }
+    
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        updateUserWithInputs()
+        if password != confirm || password!.characters.count < 1 {
+            print("Passwords do not match.")
+            return
+        }
         
-        
+        manager.editProfile(name: updatedName!, email: updatedEmail!, password: password!, confirm: confirm!) { (success) in
+            if success {
+                print("Successfully edited profile")
+            } else {
+                print("Profile not successfully saved!")
+            }
+        }
+    }
+    
+    func updateUserWithInputs() {
+        updatedName = nameTextField?.text
+        updatedEmail = emailTextField?.text
+        password = passwordTextField?.text
+        confirm = confirmTextField?.text
     }
 }
 
@@ -63,7 +91,7 @@ extension AccountViewController: UITableViewDataSource {
         case 1:
             cell.categoryLabel.text = "Email:"
             if currentUser != nil {
-                cell.categoryTextField.text = currentUser!.name
+                cell.categoryTextField.text = currentUser!.email
             }
             emailTextField = cell.categoryTextField
             
@@ -80,5 +108,4 @@ extension AccountViewController: UITableViewDataSource {
         }
         return cell
     }
-    
 }

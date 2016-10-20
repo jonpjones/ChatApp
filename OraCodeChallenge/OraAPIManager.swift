@@ -98,19 +98,31 @@ class OraAPIManager {
             let retrievedUser = User(userName: name, userEmail: email, userID: id, userToken: token)
             
             completionHandler(retrievedUser)
-            
-            
-            
-            
-            
-        
-            //TODO: Parse the api response, send data to through the completion handler
-            
-            
-            
         }
+    }
+    
+    func editProfile(name: String, email: String, password: String, confirm: String, completionHandler: @escaping (Bool) -> Void) {
+        let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNDM0NDY3NDUxfQ.Or5WanRwK1WRqqf4oeIkAHRYgNyRssM3CCplZobxr4w"]
+        let parameters = ["name": name, "email": email, "password": password, "confirm": confirm]
         
-        
-               
+        Alamofire.request(baseRefURL.appending("users/me"), method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+            guard response.result.isSuccess == true  else {
+                print("Error parsing data returned from API")
+                completionHandler(false)
+                return
+            }
+            
+            if let data = response.result.value as? [String: AnyObject] {
+                if (data["success"] as? Int) == 1 {
+                    completionHandler(true)
+                    return
+                } else {
+                    completionHandler(false)
+                    return
+                }
+            }
+            completionHandler(false)
+            return
+        }
     }
 }
