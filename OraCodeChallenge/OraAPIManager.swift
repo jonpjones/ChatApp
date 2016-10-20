@@ -63,7 +63,6 @@ class OraAPIManager {
                 return
             }
             
-            print(response.result.value)
             guard let responseDict = response.result.value as? [String: Any],
                 let responseInt = responseDict["success"] as? Int,
                 responseInt == 1 else {
@@ -75,13 +74,37 @@ class OraAPIManager {
         }
     }
     
-    func getCurrentUserInfo(completionHandler: (Bool, Name?, Email?, Token?, ID?) -> Void) {
+    func getCurrentUserInfo(completionHandler: @escaping (User?) -> Void) {
         let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNDM0NDY3NDUxfQ.Or5WanRwK1WRqqf4oeIkAHRYgNyRssM3CCplZobxr4w"]
         
         Alamofire.request(baseRefURL.appending("users/me"), headers: headers).responseJSON { (response) in
-            print(response.result.value)
+            
+            guard let json = response.result.value as? [String: AnyObject] else {
+                print("Error parsing API response")
+                completionHandler(nil)
+                return
+            }
+            
+            guard let data = json["data"] as? [String: AnyObject] else {
+                print("Error parsing nested data returned from API")
+                completionHandler(nil)
+                return
+            }
+            let name = data["name"] as! String
+            let id = data["id"] as! Int
+            let token = data["token"] as! String
+            let email = data["email"] as! String
+            
+            let retrievedUser = User(userName: name, userEmail: email, userID: id, userToken: token)
+            
+            completionHandler(retrievedUser)
+            
+            
+            
+            
+            
+        
             //TODO: Parse the api response, send data to through the completion handler
-            print("test")
             
             
             

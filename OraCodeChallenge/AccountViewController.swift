@@ -13,10 +13,7 @@ class AccountViewController: UIViewController {
     
     @IBOutlet weak var userTableView: UITableView!
     
-    var userName: String?
-    var userEmail: String?
-    var userToken: String?
-    var userId: Int?
+    var currentUser: User?
     
     var nameTextField: UITextField?
     var emailTextField: UITextField?
@@ -27,15 +24,12 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager.getCurrentUserInfo { (success, name, email, token, id) in
-            if success {
-                userName = name!
-                userEmail = email!
-                userToken = token!
-                userId = id!
-                self.userTableView.reloadData()
+        manager.getCurrentUserInfo { (user) in
+            guard user != nil else {
+                //TODO: Handle failure case here
+                return
             }
-            
+            self.currentUser = user!
         }
     }
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
@@ -61,15 +55,15 @@ extension AccountViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             cell.categoryLabel.text = "Name:"
-            if userName != nil {
-                cell.categoryTextField.text = userName!
+            if currentUser != nil {
+                cell.categoryTextField.text = currentUser!.name
             }
             nameTextField = cell.categoryTextField
             
         case 1:
             cell.categoryLabel.text = "Email:"
-            if userEmail != nil {
-                cell.categoryTextField.text = userEmail!
+            if currentUser != nil {
+                cell.categoryTextField.text = currentUser!.name
             }
             emailTextField = cell.categoryTextField
             
