@@ -16,4 +16,15 @@ extension String {
             return emailTest.evaluate(with: self)
     }
     
+    func longStyleDate() -> Date {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        if let date = formatter.date(from: self) {
+            return date
+        }
+        print("Error - date not converted properly")
+        return Date()
+    }
+
 }
