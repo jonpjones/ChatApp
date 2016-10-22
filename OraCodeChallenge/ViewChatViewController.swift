@@ -11,6 +11,7 @@ import UIKit
 class ViewChatViewController: UIViewController {
     
     @IBOutlet weak var messageTableView: UITableView!
+    @IBOutlet weak var addMessageButton: UIButton!
     
     let manager = OraAPIManager.sharedInstance
     let yourMessageCellID = "YourMessageCell"
@@ -38,7 +39,12 @@ class ViewChatViewController: UIViewController {
     }
     
     @IBAction func addMessageButtonTapped(_ sender: UIButton) {
-        print("button tapped")
+        sender.isEnabled = false
+        let addMessageOrigin = CGPoint(x: 0.2 * view.frame.width, y: 0.3 * view.frame.height)
+        let addRect = CGRect(origin: addMessageOrigin, size: CGSize(width: 0.6 * view.frame.width, height: 160))
+        let popUp = PopUp(sourceFrame: sender.frame, destFrame: addRect, superViewController: self, title: "Send a message?", textFieldPlaceholder: "Say something!")
+        popUp.delegate = self
+        self.view.addSubview(popUp)
     }
 }
 
@@ -70,12 +76,24 @@ extension ViewChatViewController: UITableViewDataSource {
         } else {
             cell.orientation = .Right
         }
-        
-        
         return cell
     }
 }
 
 extension ViewChatViewController: UITableViewDelegate {
     
+}
+
+extension ViewChatViewController: PopUpDelegate {
+    
+    func popUpStringReceived(text: String) {
+        addMessageButton.isEnabled = true
+        manager.createMessage(chatID: chatID!, text: text) { (success) in
+            if success {
+                print("Message sent!")
+            } else {
+                print("Message failed to send")
+            }
+        }
+    }
 }

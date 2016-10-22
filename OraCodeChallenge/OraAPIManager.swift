@@ -241,9 +241,32 @@ class OraAPIManager {
         let parameters = ["name": withTitle]
         
         Alamofire.request(baseRefURL.appending("chats"), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            print(response.result.value)
             let data = response.result.value as? [String: AnyObject]
-            guard (data?["data"] as? [[String: AnyObject]]) != nil else {
+            guard (data?["data"] as? [String: AnyObject]) != nil else {
+                completionHandler(false)
+                return
+            }
+            guard let success = data?["success"] as? Int else {
+                completionHandler(false)
+                return
+            }
+            if success == 1 {
+                completionHandler(true)
+                return
+            } else {
+                completionHandler(false)
+                return
+            }
+        }
+    }
+    
+    func createMessage(chatID: Int, text: String, completionHandler: @escaping (Bool) -> Void) {
+        let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNDM0NDY3NDUxfQ.Or5WanRwK1WRqqf4oeIkAHRYgNyRssM3CCplZobxr4w"]
+        let parameters = ["message": text]
+        
+        Alamofire.request(baseRefURL.appending("chats/\(chatID)/messages"), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+            let data = response.result.value as? [String: AnyObject]
+            guard (data?["data"] as? [String: AnyObject]) != nil else {
                 completionHandler(false)
                 return
             }

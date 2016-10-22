@@ -42,13 +42,13 @@ class RegisterViewController: UIViewController {
                         print("Login Successful")
                         self.performSegue(withIdentifier: "LoginSuccess", sender: self)
                     } else {
-                        //TODO: Handle failure case for login
+                        print("Failed to login")
                         sender.isEnabled = true
                     }
                 })
             } else {
+                print("Failed to login")
                 sender.isEnabled = true
-                //TODO: Handle case where registration fails
             }
         }
     }

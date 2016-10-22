@@ -238,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="603-DG-9Mn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6" y="-1047"/>
+            <point key="canvasLocation" x="270" y="-1047"/>
         </scene>
         <!--View Chat View Controller-->
         <scene sceneID="Etl-rk-wZD">
@@ -391,12 +391,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addMessageButton" destination="7cC-EW-ysU" id="D4n-s4-jSe"/>
                         <outlet property="messageTableView" destination="uXr-M8-fb4" id="jiN-11-LPB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THd-uB-mya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="579" y="-1047"/>
+            <point key="canvasLocation" x="975" y="-1046"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wh8-1x-HEA">
