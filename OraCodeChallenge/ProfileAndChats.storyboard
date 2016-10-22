@@ -41,7 +41,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cNw-vP-JN3" id="tV5-x1-Itj">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdr-F2-LQY">
@@ -91,7 +91,7 @@
                             <constraint firstAttribute="trailing" secondItem="cmx-bH-BsN" secondAttribute="trailing" id="l0y-LV-dVN"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="aXg-oC-hIY"/>
+                    <tabBarItem key="tabBarItem" title="Account" id="aXg-oC-hIY"/>
                     <connections>
                         <outlet property="userTableView" destination="cmx-bH-BsN" id="ghE-Ru-RV1"/>
                     </connections>
@@ -136,7 +136,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FpC-Ri-YIN" id="SZd-9E-2Mp">
-                                            <frame key="frameInset" width="375" height="89.5"/>
+                                            <frame key="frameInset" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xh-27-2ua">
@@ -188,22 +188,42 @@
                                     <outlet property="delegate" destination="TU6-NJ-BPF" id="0Ef-vR-JId"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHY-fZ-gq5">
+                                <color key="backgroundColor" red="0.82553797959999997" green="0.55553591250000001" blue="0.1801292598" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="3Fb-A4-3nR"/>
+                                    <constraint firstAttribute="height" constant="50" id="BWh-d9-Lxk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="44"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="aMd-mB-lwe" secondAttribute="trailing" id="4cA-9T-cqN"/>
                             <constraint firstItem="X7V-zp-pSU" firstAttribute="top" secondItem="2Vi-7b-fHE" secondAttribute="top" id="7fT-74-6JW"/>
                             <constraint firstAttribute="trailing" secondItem="2np-hW-gOc" secondAttribute="trailing" id="9Tl-7b-P2U"/>
+                            <constraint firstItem="eKa-9k-29R" firstAttribute="top" secondItem="RHY-fZ-gq5" secondAttribute="bottom" constant="15" id="Kr9-yw-yDA"/>
                             <constraint firstAttribute="trailing" secondItem="X7V-zp-pSU" secondAttribute="trailing" id="OSS-qB-kFG"/>
                             <constraint firstItem="2np-hW-gOc" firstAttribute="leading" secondItem="2Vi-7b-fHE" secondAttribute="leading" id="RBt-qx-Uyh"/>
                             <constraint firstItem="aMd-mB-lwe" firstAttribute="leading" secondItem="2Vi-7b-fHE" secondAttribute="leading" id="TFU-iS-9YK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RHY-fZ-gq5" secondAttribute="trailing" constant="15" id="ejh-BP-EO9"/>
                             <constraint firstItem="X7V-zp-pSU" firstAttribute="leading" secondItem="2Vi-7b-fHE" secondAttribute="leading" id="hcs-Rz-JEe"/>
                             <constraint firstItem="2np-hW-gOc" firstAttribute="top" secondItem="aMd-mB-lwe" secondAttribute="bottom" id="iHU-OD-44s"/>
                             <constraint firstItem="eKa-9k-29R" firstAttribute="top" secondItem="2np-hW-gOc" secondAttribute="bottom" id="jl3-4G-6hf"/>
                             <constraint firstItem="aMd-mB-lwe" firstAttribute="top" secondItem="X7V-zp-pSU" secondAttribute="bottom" id="paE-lI-V9U"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="OraChat" id="AzL-06-Tit"/>
+                    <navigationItem key="navigationItem" title="OraChat" id="AzL-06-Tit">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="0Dp-4c-BC7"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="chatSearchBar" destination="aMd-mB-lwe" id="m7w-FA-f46"/>
                         <outlet property="chatsTableView" destination="2np-hW-gOc" id="dxz-rt-OKy"/>
@@ -217,7 +237,7 @@
         <!--View Chat View Controller-->
         <scene sceneID="Etl-rk-wZD">
             <objects>
-                <viewController id="MfD-Op-Sa7" customClass="ViewChatViewController" customModule="OraCodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="MfD-Op-Sa7" customClass="ViewChatViewController" customModule="OraCodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7PE-OW-pks"/>
                         <viewControllerLayoutGuide type="bottom" id="Cq9-NX-QgE"/>
@@ -226,11 +246,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uXr-M8-fb4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="uXr-M8-fb4">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="YourMessageCell" id="QVr-zV-XlU" customClass="MessageTableViewCell" customModule="OraCodeChallenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="1" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QVr-zV-XlU" id="R6G-UJ-TbX">
                                             <frame key="frameInset" width="375" height="100"/>
@@ -280,7 +300,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OtherMessageCell" id="aYC-gv-Qee" customClass="MessageTableViewCell" customModule="OraCodeChallenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="192" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="101" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aYC-gv-Qee" id="JeZ-zg-4r7">
                                             <frame key="frameInset" width="375" height="100"/>
@@ -335,13 +355,29 @@
                                     <outlet property="delegate" destination="MfD-Op-Sa7" id="gya-Ff-C2M"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cC-EW-ysU">
+                                <color key="backgroundColor" red="0.82553797959999997" green="0.55553591250000001" blue="0.1801292598" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Zvc-2a-9ir"/>
+                                    <constraint firstAttribute="width" constant="50" id="pta-WK-9qa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="44"/>
+                                <state key="normal" title="+"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uXr-M8-fb4" secondAttribute="trailing" id="QYH-ha-jzI"/>
                             <constraint firstItem="uXr-M8-fb4" firstAttribute="leading" secondItem="Sz4-Bp-aOP" secondAttribute="leading" id="nNc-zH-VfQ"/>
+                            <constraint firstAttribute="trailing" secondItem="7cC-EW-ysU" secondAttribute="trailing" constant="15" id="pUf-5m-YoY"/>
                             <constraint firstItem="uXr-M8-fb4" firstAttribute="top" secondItem="7PE-OW-pks" secondAttribute="bottom" id="sjB-Dp-Yd5"/>
                             <constraint firstItem="Cq9-NX-QgE" firstAttribute="top" secondItem="uXr-M8-fb4" secondAttribute="bottom" id="w3M-Cz-g46"/>
+                            <constraint firstItem="Cq9-NX-QgE" firstAttribute="top" secondItem="7cC-EW-ysU" secondAttribute="bottom" constant="15" id="ysC-eO-WbI"/>
                         </constraints>
                     </view>
                     <connections>
@@ -374,7 +410,7 @@
         <scene sceneID="qBZ-sn-D0L">
             <objects>
                 <navigationController title="OraChat" automaticallyAdjustsScrollViewInsets="NO" id="YM4-3R-m0T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="VqS-xx-Ad0"/>
+                    <tabBarItem key="tabBarItem" title="Messages" id="VqS-xx-Ad0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TBp-Rf-Rdm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
