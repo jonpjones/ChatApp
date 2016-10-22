@@ -36,6 +36,10 @@ class ViewChatViewController: UIViewController {
             })
         }
     }
+    
+    @IBAction func addMessageButtonTapped(_ sender: UIButton) {
+        print("button tapped")
+    }
 }
 
 extension ViewChatViewController: UITableViewDataSource {

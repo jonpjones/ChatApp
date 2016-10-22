@@ -81,6 +81,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.82553797960281372" green="0.55553591251373291" blue="0.18012925982475281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="R9u-xR-PdK" firstAttribute="leading" secondItem="1bS-Xp-Mza" secondAttribute="leading" id="DXb-EL-hST"/>
                             <constraint firstAttribute="trailing" secondItem="R9u-xR-PdK" secondAttribute="trailing" id="Gub-TP-KrS"/>
@@ -132,7 +133,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="98" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2np-hW-gOc">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatCell" rowHeight="90" id="FpC-Ri-YIN" customClass="ChatTableViewCell" customModule="OraCodeChallenge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatCell" rowHeight="90" id="FpC-Ri-YIN" customClass="ChatTableViewCell" customModule="OraCodeChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FpC-Ri-YIN" id="SZd-9E-2Mp">
@@ -203,9 +204,13 @@
                                         <integer key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addChatButtonTapped:" destination="TU6-NJ-BPF" eventType="touchUpInside" id="PNo-MK-6GO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.82553797960281372" green="0.55553591251373291" blue="0.18012925982475281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="aMd-mB-lwe" secondAttribute="trailing" id="4cA-9T-cqN"/>
                             <constraint firstItem="X7V-zp-pSU" firstAttribute="top" secondItem="2Vi-7b-fHE" secondAttribute="top" id="7fT-74-6JW"/>
@@ -249,7 +254,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="uXr-M8-fb4">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="YourMessageCell" id="QVr-zV-XlU" customClass="MessageTableViewCell" customModule="OraCodeChallenge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="YourMessageCell" id="QVr-zV-XlU" customClass="MessageTableViewCell" customModule="OraCodeChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QVr-zV-XlU" id="R6G-UJ-TbX">
@@ -299,7 +304,7 @@
                                             <outlet property="messageView" destination="qA9-mD-Bpd" id="NU9-09-cbD"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OtherMessageCell" id="aYC-gv-Qee" customClass="MessageTableViewCell" customModule="OraCodeChallenge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OtherMessageCell" id="aYC-gv-Qee" customClass="MessageTableViewCell" customModule="OraCodeChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="101" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aYC-gv-Qee" id="JeZ-zg-4r7">
@@ -368,9 +373,13 @@
                                         <integer key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addMessageButtonTapped:" destination="MfD-Op-Sa7" eventType="touchUpInside" id="F9e-zm-Rjp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.82553797960281372" green="0.55553591251373291" blue="0.18012925982475281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uXr-M8-fb4" secondAttribute="trailing" id="QYH-ha-jzI"/>
                             <constraint firstItem="uXr-M8-fb4" firstAttribute="leading" secondItem="Sz4-Bp-aOP" secondAttribute="leading" id="nNc-zH-VfQ"/>
@@ -396,6 +405,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.82553797960281372" green="0.55553591251373291" blue="0.18012925982475281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="YM4-3R-m0T" kind="relationship" relationship="viewControllers" id="2Qj-Xh-6Ll"/>
@@ -412,9 +422,10 @@
                 <navigationController title="OraChat" automaticallyAdjustsScrollViewInsets="NO" id="YM4-3R-m0T" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Messages" id="VqS-xx-Ad0"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TBp-Rf-Rdm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TBp-Rf-Rdm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.82553797960281372" green="0.55553591251373291" blue="0.18012925982475281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

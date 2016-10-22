@@ -28,6 +28,7 @@
 		13591CF71DB6DBA70041F694 /* OraAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13591CF61DB6DBA70041F694 /* OraAPIManager.swift */; };
 		13821E131DBB0F0F00BFA778 /* ViewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13821E121DBB0F0F00BFA778 /* ViewChatViewController.swift */; };
 		13821E171DBBC40700BFA778 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13821E161DBBC40700BFA778 /* MessageTableViewCell.swift */; };
+		13821E191DBBE7F700BFA778 /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13821E181DBBE7F700BFA778 /* PopUp.swift */; };
 		F2C7465BBE268E5654102949 /* Pods_OraCodeChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 330EE5EAC26DA8903C936AC8 /* Pods_OraCodeChallenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		13591CF61DB6DBA70041F694 /* OraAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OraAPIManager.swift; sourceTree = "<group>"; };
 		13821E121DBB0F0F00BFA778 /* ViewChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewChatViewController.swift; sourceTree = "<group>"; };
 		13821E161DBBC40700BFA778 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		13821E181DBBE7F700BFA778 /* PopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		330EE5EAC26DA8903C936AC8 /* Pods_OraCodeChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OraCodeChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A95F7D8B1493F46E25039FB2 /* Pods-OraCodeChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraCodeChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OraCodeChallenge/Pods-OraCodeChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		B8B250DB3CC1ACB5E6116615 /* Pods-OraCodeChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OraCodeChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-OraCodeChallenge/Pods-OraCodeChallenge.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				13591CF01DB6CCA00041F694 /* String + Extension.swift */,
 				13821E161DBBC40700BFA778 /* MessageTableViewCell.swift */,
 				134FCE851DB94E3200744FEF /* Date + Extension.swift */,
+				13821E181DBBE7F700BFA778 /* PopUp.swift */,
 				13591CF41DB6D5630041F694 /* RegisterCell.swift */,
 				134FCE8B1DB9754000744FEF /* ChatTableViewCell.swift */,
 				134FCE871DB950A900744FEF /* Chat.swift */,
@@ -305,6 +308,7 @@
 				134FCE881DB950A900744FEF /* Chat.swift in Sources */,
 				13821E171DBBC40700BFA778 /* MessageTableViewCell.swift in Sources */,
 				134FCE861DB94E3200744FEF /* Date + Extension.swift in Sources */,
+				13821E191DBBE7F700BFA778 /* PopUp.swift in Sources */,
 				13591CF51DB6D5630041F694 /* RegisterCell.swift in Sources */,
 				134FCE8A1DB9578600744FEF /* Message.swift in Sources */,
 				13591CF71DB6DBA70041F694 /* OraAPIManager.swift in Sources */,

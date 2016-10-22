@@ -15,6 +15,7 @@ typealias Token = String
 typealias ID = Int
 
 var currentUserID: Int?
+var currentUserName: String?
 
 class OraAPIManager {
     
@@ -74,6 +75,7 @@ class OraAPIManager {
             }
             let responseData = responseDict["data"] as! [String: AnyObject]
             currentUserID = responseData["id"] as? Int
+            currentUserName = responseData["name"] as? String
             completionHandler(true)
         }
     }

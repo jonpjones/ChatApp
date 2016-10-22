@@ -57,6 +57,17 @@ class AllChatsViewController: UIViewController {
         return sortedArray
     }
     
+    @IBAction func addChatButtonTapped(_ sender: UIButton) {
+        let addChatOrigin = CGPoint(x: 0.2 * view.frame.width, y: 0.3 * view.frame.height)
+        let addRect = CGRect(origin: addChatOrigin, size: CGSize(width: 0.6 * view.frame.width, height: 160))
+        
+        let popUp = PopUp(sourceFrame: sender.frame, destFrame: addRect, superViewController: self, title: "Add a Chat!", textFieldPlaceholder: "Chat Title")
+        popUp.delegate = self
+        view.addSubview(popUp)
+        sender.isEnabled = false
+
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == viewChatSegueID {
             let dvc = segue.destination as! ViewChatViewController
@@ -68,12 +79,12 @@ class AllChatsViewController: UIViewController {
 
 extension AllChatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         let chatDate = sortedDates[indexPath.section]
         if let chat = datedChats[chatDate]?[indexPath.row] {
             selectedChat = chat
             self.performSegue(withIdentifier: viewChatSegueID, sender: self)
         }
-        
     }
 }
 
@@ -119,5 +130,11 @@ extension AllChatsViewController: UISearchBarDelegate {
             datedChats = sortAndSeparateChats(chats: allChats!)
             chatsTableView.reloadData()
         }
+    }
+}
+
+extension AllChatsViewController: PopUpDelegate {
+    func popUpStringReceived(text: String) {
+        print(text)
     }
 }
