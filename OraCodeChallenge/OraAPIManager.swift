@@ -144,7 +144,7 @@ class OraAPIManager {
                         var chatArray: [Chat] = []
                         for chat in chats! {
                             var lastMessage: Message?
-                        
+                            
                             if let message = chat["last_message"] as? [String: AnyObject] {
                                 let chatID = message["chat_id"] as! Int
                                 let date = (message["created"] as! String).longStyleDate()
@@ -181,6 +181,51 @@ class OraAPIManager {
                     completionHandler(nil)
                     print("Did not successfully retrieve chats")
                     return
+                }
+            }
+        }
+    }
+    
+    func retrieveChatInformation(id: Int, page: Int, completionHandler: @escaping ([Message]?) -> Void) {
+        let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNDM0NDY3NDUxfQ.Or5WanRwK1WRqqf4oeIkAHRYgNyRssM3CCplZobxr4w"]
+        
+        Alamofire.request(baseRefURL.appending("chats/\(id)/messages?page=\(page)&limit=20"), method: .get, headers: headers).responseJSON { (response) in
+            guard response.result.isSuccess == true else {
+                print("Error parsing data returned from API")
+                return
+            }
+            
+            if let data = response.result.value as? [String: AnyObject] {
+                if (data["success"] as? Int) == 1 {
+                    print("Successfully retrieved chats")
+                    let data = response.result.value as? [String: AnyObject]
+                    guard let messages = data?["data"] as? [[String: AnyObject]] else {
+                        completionHandler(nil)
+                        return
+                    }
+                    var messageArray: [Message] = []
+                    
+                    for message in messages {
+                        let chatID = message["chat_id"] as! Int
+                        let userID = message["user_id"] as! Int
+                        let messageID = message["id"] as! Int
+                        let messageString = message["message"] as! String
+                        let createdDate = (message["created"] as! String).longStyleDate()
+                        let user = message["user"] as! [String: AnyObject]
+                        let userName = user["name"] as! String
+                        
+                        let newMessage = Message(newChatID: chatID, created: createdDate, messageId: messageID, newMessage: messageString, creatorID: userID, creatorName: userName)
+                        messageArray.append(newMessage)
+                    }
+                    if messageArray.count > 0 {
+                        completionHandler(messageArray)
+                        return
+                    } else {
+                        completionHandler(nil)
+                        return
+                    }
+                } else {
+                    completionHandler(nil)
                 }
             }
         }

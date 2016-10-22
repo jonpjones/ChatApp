@@ -41,7 +41,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cNw-vP-JN3" id="tV5-x1-Itj">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdr-F2-LQY">
@@ -100,7 +100,7 @@
             </objects>
             <point key="canvasLocation" x="-544.79999999999995" y="-388.15592203898052"/>
         </scene>
-        <!--All Chats View Controller-->
+        <!--OraChat-->
         <scene sceneID="en4-mG-c8X">
             <objects>
                 <viewController id="TU6-NJ-BPF" customClass="AllChatsViewController" customModule="OraCodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
@@ -136,7 +136,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FpC-Ri-YIN" id="SZd-9E-2Mp">
-                                            <frame key="frameInset" width="375" height="89"/>
+                                            <frame key="frameInset" width="375" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xh-27-2ua">
@@ -203,20 +203,21 @@
                             <constraint firstItem="aMd-mB-lwe" firstAttribute="top" secondItem="X7V-zp-pSU" secondAttribute="bottom" id="paE-lI-V9U"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="VqS-xx-Ad0"/>
+                    <navigationItem key="navigationItem" title="OraChat" id="AzL-06-Tit"/>
                     <connections>
                         <outlet property="chatSearchBar" destination="aMd-mB-lwe" id="m7w-FA-f46"/>
                         <outlet property="chatsTableView" destination="2np-hW-gOc" id="dxz-rt-OKy"/>
+                        <segue destination="MfD-Op-Sa7" kind="show" identifier="ViewChat" id="yWe-rN-QtV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="603-DG-9Mn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-544.79999999999995" y="-1045.7271364317842"/>
+            <point key="canvasLocation" x="394.39999999999998" y="-1045.7271364317842"/>
         </scene>
-        <!--View Controller-->
+        <!--View Chat View Controller-->
         <scene sceneID="Etl-rk-wZD">
             <objects>
-                <viewController id="MfD-Op-Sa7" sceneMemberID="viewController">
+                <viewController id="MfD-Op-Sa7" customClass="ViewChatViewController" customModule="OraCodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7PE-OW-pks"/>
                         <viewControllerLayoutGuide type="bottom" id="Cq9-NX-QgE"/>
@@ -229,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THd-uB-mya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="257" y="-1045"/>
+            <point key="canvasLocation" x="1196" y="-1045.7271364317842"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wh8-1x-HEA">
@@ -241,13 +242,32 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="TU6-NJ-BPF" kind="relationship" relationship="viewControllers" id="2Qj-Xh-6Ll"/>
+                        <segue destination="YM4-3R-m0T" kind="relationship" relationship="viewControllers" id="2Qj-Xh-6Ll"/>
                         <segue destination="FAW-BO-8dv" kind="relationship" relationship="viewControllers" id="9Yv-Mi-p5X"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kt2-Dk-o5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1496" y="-715"/>
+        </scene>
+        <!--OraChat-->
+        <scene sceneID="qBZ-sn-D0L">
+            <objects>
+                <navigationController title="OraChat" automaticallyAdjustsScrollViewInsets="NO" id="YM4-3R-m0T" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="VqS-xx-Ad0"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TBp-Rf-Rdm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TU6-NJ-BPF" kind="relationship" relationship="rootViewController" id="rbd-Z8-V51"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Baw-Rp-j8a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-544.79999999999995" y="-1045.7271364317842"/>
         </scene>
     </scenes>
 </document>

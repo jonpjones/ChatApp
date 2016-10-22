@@ -15,12 +15,14 @@ class AllChatsViewController: UIViewController {
     
     let manager = OraAPIManager.sharedInstance
     let chatCellID = "ChatCell"
+    let viewChatSegueID = "ViewChat"
     
     var datedChats: [Date: [Chat]] = [:]
     var sortedDates: [Date] = []
     var searching: Bool = false
     var allChats: [Chat]?
     var filteredChats: [Chat]?
+    var selectedChatID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +56,24 @@ class AllChatsViewController: UIViewController {
         })
         return sortedArray
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == viewChatSegueID {
+            let dvc = segue.destination as! ViewChatViewController
+            dvc.chatID = selectedChatID!
+        }
+    }
 }
 
 extension AllChatsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chatDate = sortedDates[indexPath.section]
+        if let chat = datedChats[chatDate]?[indexPath.row] {
+            selectedChatID = chat.id
+            self.performSegue(withIdentifier: viewChatSegueID, sender: self)
+        }
+        
+    }
 }
 
 extension AllChatsViewController: UITableViewDataSource {
@@ -81,7 +97,6 @@ extension AllChatsViewController: UITableViewDataSource {
             cell.nameAndTimeLabel.text = "\(chat.lastMessage.userName) - \(chat.lastMessage.createdDate.timeSinceDate())"
             cell.lastMessageLabel.text = chat.lastMessage.message
         }
-        
         return cell
     }
     
