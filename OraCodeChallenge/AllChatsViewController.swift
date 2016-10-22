@@ -22,7 +22,7 @@ class AllChatsViewController: UIViewController {
     var searching: Bool = false
     var allChats: [Chat]?
     var filteredChats: [Chat]?
-    var selectedChatID: Int?
+    var selectedChat: Chat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,8 @@ class AllChatsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == viewChatSegueID {
             let dvc = segue.destination as! ViewChatViewController
-            dvc.chatID = selectedChatID!
+            dvc.chatID = selectedChat?.id
+            dvc.title = selectedChat?.name
         }
     }
 }
@@ -69,7 +70,7 @@ extension AllChatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chatDate = sortedDates[indexPath.section]
         if let chat = datedChats[chatDate]?[indexPath.row] {
-            selectedChatID = chat.id
+            selectedChat = chat
             self.performSegue(withIdentifier: viewChatSegueID, sender: self)
         }
         

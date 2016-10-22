@@ -14,6 +14,8 @@ typealias Name = String
 typealias Token = String
 typealias ID = Int
 
+var currentUserID: Int?
+
 class OraAPIManager {
     
     static let sharedInstance = OraAPIManager()
@@ -70,6 +72,8 @@ class OraAPIManager {
                     completionHandler(false)
                     return
             }
+            let responseData = responseDict["data"] as! [String: AnyObject]
+            currentUserID = responseData["id"] as? Int
             completionHandler(true)
         }
     }
