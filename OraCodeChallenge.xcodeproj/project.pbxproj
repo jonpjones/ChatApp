@@ -428,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A95F7D8B1493F46E25039FB2 /* Pods-OraCodeChallenge.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B49K2M3VK9;
 				INFOPLIST_FILE = OraCodeChallenge/Info.plist;
@@ -442,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B8B250DB3CC1ACB5E6116615 /* Pods-OraCodeChallenge.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B49K2M3VK9;
 				INFOPLIST_FILE = OraCodeChallenge/Info.plist;

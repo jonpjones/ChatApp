@@ -10,6 +10,7 @@ import UIKit
 
 class AllChatsViewController: UIViewController {
     
+    @IBOutlet weak var addChatButton: UIButton!
     @IBOutlet weak var chatSearchBar: UISearchBar!
     @IBOutlet weak var chatsTableView: UITableView!
     
@@ -65,7 +66,7 @@ class AllChatsViewController: UIViewController {
         popUp.delegate = self
         view.addSubview(popUp)
         sender.isEnabled = false
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -79,7 +80,7 @@ class AllChatsViewController: UIViewController {
 
 extension AllChatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         let chatDate = sortedDates[indexPath.section]
         if let chat = datedChats[chatDate]?[indexPath.row] {
             selectedChat = chat
@@ -135,6 +136,15 @@ extension AllChatsViewController: UISearchBarDelegate {
 
 extension AllChatsViewController: PopUpDelegate {
     func popUpStringReceived(text: String) {
-        print(text)
+        addChatButton.isEnabled = true
+        if text.characters.count > 0 {
+            manager.createChat(withTitle: text) { (success) in
+                if success {
+                    print("Successfully created a chat")
+                } else {
+                    print("Chat creation failed!")
+                }
+            }
+        }
     }
 }

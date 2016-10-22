@@ -77,6 +77,8 @@ class PopUp: UIView {
     func buttonTapped() {
         if inputTextField!.hasText {
             delegate?.popUpStringReceived(text: inputTextField!.text!)
+        } else {
+            delegate?.popUpStringReceived(text: "")
         }
         bgView?.removeFromSuperview()
         self.removeFromSuperview()

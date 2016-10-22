@@ -230,6 +230,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="0Dp-4c-BC7"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="addChatButton" destination="RHY-fZ-gq5" id="U2b-k8-DLt"/>
                         <outlet property="chatSearchBar" destination="aMd-mB-lwe" id="m7w-FA-f46"/>
                         <outlet property="chatsTableView" destination="2np-hW-gOc" id="dxz-rt-OKy"/>
                         <segue destination="MfD-Op-Sa7" kind="show" identifier="ViewChat" id="yWe-rN-QtV"/>
@@ -237,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="603-DG-9Mn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="394.39999999999998" y="-1045.7271364317842"/>
+            <point key="canvasLocation" x="6" y="-1047"/>
         </scene>
         <!--View Chat View Controller-->
         <scene sceneID="Etl-rk-wZD">
@@ -395,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THd-uB-mya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1196" y="-1045.7271364317842"/>
+            <point key="canvasLocation" x="579" y="-1047"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wh8-1x-HEA">
