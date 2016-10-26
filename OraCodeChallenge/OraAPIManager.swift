@@ -18,12 +18,19 @@ var currentUserID: Int?
 var currentUserName: String?
 
 class OraAPIManager {
-    
+
     static let sharedInstance = OraAPIManager()
-    
     let baseRefURL = "http://private-d9e5b-oracodechallenge.apiary-mock.com/"
     
-    func registerUser(name: String, email: String, password: String, confirmPassword: String, completionHandler: @escaping (Bool) -> ()) {
+       /// Used to register a user with the API.
+       ///
+       /// - parameter name:              Name of user
+       /// - parameter email:             Email address of user
+       /// - parameter password:          String of the submitted password
+       /// - parameter confirmPassword:   Reiteration of submitted password
+       /// - parameter completionHandler: Function sending a boolean to the object that initially called the registration function, used to determine whether or not the user was successfully registered.
+    
+       func registerUser(name: Name, email: Email, password: String, confirmPassword: String, completionHandler: @escaping (Bool) -> ()) {
         
         let parameters = ["name": name, "email": email, "password": password, "confirm":  confirmPassword]
         let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8"]
@@ -50,7 +57,12 @@ class OraAPIManager {
             completionHandler(true)
         }
     }
-    
+ 
+    /// Function to ask the API to login given the input credentials.
+    ///
+    /// - parameter email:             Email of user
+    /// - parameter password:          Password of user
+    /// - parameter completionHandler: Function to be executed with a boolean indicating success or failure of login.
     func login(email: String, password: String, completionHandler: @escaping (Bool) -> ()) {
         let parameters = ["email": email, "password": password]
         let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8"]
@@ -80,6 +92,9 @@ class OraAPIManager {
         }
     }
     
+    /// Used to fetch information about the currently logged in user.
+    ///
+    /// - parameter completionHandler: Function to be executed with returned user information, if API call is successful.
     func getCurrentUserInfo(completionHandler: @escaping (User?) -> Void) {
         let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNDM0NDY3NDUxfQ.Or5WanRwK1WRqqf4oeIkAHRYgNyRssM3CCplZobxr4w"]
         
@@ -107,6 +122,13 @@ class OraAPIManager {
         }
     }
     
+    /// Submits parameters to API in order to update the user information with the inputted paramters.
+    ///
+    /// - parameter name:              New name of user
+    /// - parameter email:             New email of user
+    /// - parameter password:          Password for verification
+    /// - parameter confirm:           Confirmed password for verificaiton
+    /// - parameter completionHandler: Function to be executed with a boolean indicating success or failure of edit request.
     func editProfile(name: String, email: String, password: String, confirm: String, completionHandler: @escaping (Bool) -> Void) {
         let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNDM0NDY3NDUxfQ.Or5WanRwK1WRqqf4oeIkAHRYgNyRssM3CCplZobxr4w"]
         let parameters = ["name": name, "email": email, "password": password, "confirm": confirm]
@@ -132,6 +154,10 @@ class OraAPIManager {
         }
     }
     
+    /// Retrieves the stored chats for the currently logged in user.
+    ///
+    /// - parameter page:              The page number for returned chats (max of 20 per page)
+    /// - parameter completionHandler: Function to be executed once message chains have been returned. If retreival is unsuccessful, will send nil to the function.
     func retrieveChats(page: Int, completionHandler: @escaping ([Chat]?) -> Void) {
         let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNDM0NDY3NDUxfQ.Or5WanRwK1WRqqf4oeIkAHRYgNyRssM3CCplZobxr4w"]
         
@@ -191,6 +217,12 @@ class OraAPIManager {
             }
         }
     }
+    
+    /// Retrieves information for one specific message chain
+    ///
+    /// - parameter id:                The ID number of the given chat
+    /// - parameter page:              The page number of chats to be returned
+    /// - parameter completionHandler: Function to be executed once response has been received from the API (will return nil if no messages are received)
     
     func retrieveChatInformation(id: Int, page: Int, completionHandler: @escaping ([Message]?) -> Void) {
         let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNDM0NDY3NDUxfQ.Or5WanRwK1WRqqf4oeIkAHRYgNyRssM3CCplZobxr4w"]
