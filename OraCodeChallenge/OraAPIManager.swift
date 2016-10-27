@@ -269,6 +269,10 @@ class OraAPIManager {
         }
     }
     
+    /// Attempts to create a message chain with the input title
+    ///
+    /// - parameter withTitle:         Title of the new chat.
+    /// - parameter completionHandler: Function to be executed with a boolean indicating success or failure of the request to create a message chain.
     func createChat(withTitle: String,  completionHandler: @escaping (Bool) -> Void) {        let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNDM0NDY3NDUxfQ.Or5WanRwK1WRqqf4oeIkAHRYgNyRssM3CCplZobxr4w"]
         let parameters = ["name": withTitle]
         
@@ -292,6 +296,11 @@ class OraAPIManager {
         }
     }
     
+    /// Attempts to create a new message entry in an existing message chain.
+    ///
+    /// - parameter chatID:            ID number of the current message chain.
+    /// - parameter text:              Text of the new message body
+    /// - parameter completionHandler: Function to be executed with a boolean indicating success or failure of the creation attempt.
     func createMessage(chatID: Int, text: String, completionHandler: @escaping (Bool) -> Void) {
         let headers: HTTPHeaders = ["Accept": "application/json", "Content-Type": "application/json; charset=utf-8", "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwIjoxNDM0NDY3NDUxfQ.Or5WanRwK1WRqqf4oeIkAHRYgNyRssM3CCplZobxr4w"]
         let parameters = ["message": text]

@@ -32,13 +32,17 @@ class LoginViewController: UIViewController {
         password = passwordTextField?.text
     }
     
+    //When the login button is tapped, records the contents of the user info text fields and sends it to the API to determine whether or not the user was successfully logged in. 
     @IBAction func loginButtonTapped(_ sender: UIBarButtonItem) {
         recordTextFieldInputs()
+        sender.isEnabled = false
         manager.login(email: email!, password: password!) { (success) in
             if success {
+                self.performSegue(withIdentifier: "LoginSuccessful", sender: self)
                 print("Login Successful")
             } else {
                 print("Login Failed")
+                sender.isEnabled = true
             }
         }
     }

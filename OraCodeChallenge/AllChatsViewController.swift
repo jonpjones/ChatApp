@@ -40,6 +40,13 @@ class AllChatsViewController: UIViewController {
         }
     }
     
+    
+
+    /// Takes an array of Chat objects and reorganizes the array in to a dictionary, with keys representing the dates on which these chats take place.
+    ///
+    /// - parameter chats: An array of Chat objects
+    ///
+    /// - returns: A dictionary with keys representing the dates on which messages were created. If two different messages took place on the same day, the value for that date key would be an array of both chats.
     func sortAndSeparateChats(chats: [Chat]) -> [Date: [Chat]]{
         var sortedArray: [Date: [Chat]] = [:]
         for chat in chats {
@@ -120,6 +127,7 @@ extension AllChatsViewController: UITableViewDataSource {
 }
 
 extension AllChatsViewController: UISearchBarDelegate {
+    // If the user changes the text in the search field, then the filtered chat array is created that contains the members of the allChats array that contain the text being searched for in the title of the chat.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.characters.count > 0 {
             filteredChats = allChats?.filter({ (chat) -> Bool in
@@ -135,6 +143,10 @@ extension AllChatsViewController: UISearchBarDelegate {
 }
 
 extension AllChatsViewController: PopUpDelegate {
+    
+    /// Message received from the pop up confirming text was entered into the pop up's text fields.
+    ///
+    /// - parameter text: Text from the text field of the delegator.
     func popUpStringReceived(text: String) {
         addChatButton.isEnabled = true
         if text.characters.count > 0 {

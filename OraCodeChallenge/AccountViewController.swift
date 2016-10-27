@@ -42,7 +42,7 @@ class AccountViewController: UIViewController {
             }
         }
     }
-    
+    //When the save button is tapped, the user variables are to the contents of their corresponding text fields. If the password field is populated and matches the contents of the confirm field, then all of the information is submitted to the API create a new user.
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         sender.isEnabled = false
         updateUserWithInputs()
@@ -62,6 +62,7 @@ class AccountViewController: UIViewController {
         }
     }
     
+    // Updates user variables with contents of associated text fields
     func updateUserWithInputs() {
         updatedName = nameTextField?.text
         updatedEmail = emailTextField?.text

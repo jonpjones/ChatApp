@@ -38,8 +38,10 @@ class ViewChatViewController: UIViewController {
         }
     }
     
+    // When the add message button is tapped, programmatically creates a UIView with a title, a textfield and a button as subviews and animates it towards the center of the screen. 
     @IBAction func addMessageButtonTapped(_ sender: UIButton) {
         sender.isEnabled = false
+        
         let addMessageOrigin = CGPoint(x: 0.2 * view.frame.width, y: 0.3 * view.frame.height)
         let addRect = CGRect(origin: addMessageOrigin, size: CGSize(width: 0.6 * view.frame.width, height: 160))
         let popUp = PopUp(sourceFrame: sender.frame, destFrame: addRect, superViewController: self, title: "Send a message?", textFieldPlaceholder: "Say something!")
@@ -71,6 +73,7 @@ extension ViewChatViewController: UITableViewDataSource {
         cell.messageLabel.text = message?.message
         cell.authorAndDateLabel.text = "\(message!.userName) - \(message!.createdDate.timeSinceDate())"
         
+        //Currently cell.orientation does not change appearance of the cell, but this can hopefully be changed to customize the appearance of different users' messages
         if message?.userID != currentUserID {
             cell.orientation = .Left
         } else {
@@ -85,7 +88,9 @@ extension ViewChatViewController: UITableViewDelegate {
 }
 
 extension ViewChatViewController: PopUpDelegate {
-    
+    /// Message received from the pop up confirming text was entered into the pop up's text fields.
+    ///
+    /// - parameter text: Text from the text field of the delegator.
     func popUpStringReceived(text: String) {
         addMessageButton.isEnabled = true
         manager.createMessage(chatID: chatID!, text: text) { (success) in
